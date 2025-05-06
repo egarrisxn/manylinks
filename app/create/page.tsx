@@ -1,5 +1,3 @@
-import { signOut } from "@/lib/auth";
-import { Button } from "@/components/ui/button";
 import ExtraLinksForm from "@/components/forms/extra-links-form";
 import ProfileForm from "@/components/forms/profile-form";
 import SocialLinksForm from "@/components/forms/social-links-form";
@@ -9,22 +7,14 @@ import PublishPage from "@/components/buttons/publish-page";
 import BackgroundShell from "@/components/backgrounds/background-shell";
 import MobileMockup from "@/components/mobile-mockup";
 import ThemeSelector from "@/components/buttons/theme-selector";
+import SignOut from "@/components/buttons/sign-out";
 
 export default function CreatePage() {
   return (
     <>
       <header className='absolute top-0 mx-auto flex w-full flex-row items-center justify-between px-4 py-2'>
         <ThemeSelector />
-        <form
-          action={async () => {
-            "use server";
-            await signOut();
-          }}
-        >
-          <Button type='submit' size='xs'>
-            Log Out
-          </Button>
-        </form>
+        <SignOut />
       </header>
       <div className='relative grid min-h-screen px-2 md:container lg:grid-cols-3 lg:px-0'>
         <section className='flex h-screen flex-col items-center justify-center gap-6 px-2 py-6 lg:col-span-2 lg:px-20'>

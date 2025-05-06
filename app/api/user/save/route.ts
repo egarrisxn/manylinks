@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import client from "@/lib/db";
+
 import { DataProps } from "@/types";
 
 export async function POST(req: Request) {
@@ -14,7 +15,6 @@ export async function POST(req: Request) {
     const userId = session.user.id;
     const userData: DataProps = await req.json();
     const pagesCollection = client.db().collection("pages");
-
     const documentToSave = {
       userId: userId,
       profileUrl: userData.i,

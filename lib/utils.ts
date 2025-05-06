@@ -7,6 +7,19 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const encodeData = (obj: DataProps): string => {
+  return encode(JSON.stringify(obj));
+};
+
+export const decodeData = (base64: string) => {
+  try {
+    const decodedString = decode(base64);
+    return JSON.parse(decodedString) as DataProps;
+  } catch (error) {
+    return null;
+  }
+};
+
 export function isEmptyValues(obj: DataProps): boolean {
   if (!obj) {
     return true;

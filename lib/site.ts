@@ -1,10 +1,10 @@
-//! Use for Internal API Requests
+// Internal API Requests
 export const BASE_URL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
     : "https://manylinks.vercel.app";
 
-//! Use for SEO & Metadata
+// SEO & Metadata
 export const SITE_URL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"

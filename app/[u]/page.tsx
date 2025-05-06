@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import client from "@/lib/db";
-import { BACKGROUND_OPTIONS } from "@/components/backgrounds/background-snippets";
+import LoadingPage from "@/app/loading";
 import ThemeSelector from "@/components/buttons/theme-selector";
 import DisplayData from "@/components/display-data";
-import DataLoading from "../loading";
+import { BACKGROUND_OPTIONS } from "@/components/backgrounds/background-snippets";
+
 import { DisplayDataProps } from "@/types";
 
 const getProfileData = async (
@@ -75,7 +76,7 @@ export default async function UsersProfilePage({
               ?.component}
         </div>
         <div className='p-2 pt-10'>
-          {data ? <DisplayData acc={data} /> : <DataLoading />}
+          {data ? <DisplayData acc={data} /> : <LoadingPage />}
         </div>
       </div>
       <footer className='absolute bottom-0 z-10 mx-auto flex w-full items-center justify-center p-4 text-sm'>

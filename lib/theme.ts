@@ -39,7 +39,6 @@ export const BASE_COLORS = [
       dark: "oklch(0.68 0.16 276.93)",
     },
   },
-
   {
     name: "pixel",
     label: "Pixel",
