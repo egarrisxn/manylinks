@@ -1,0 +1,68 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { isEmptyValues } from "@/lib/utils";
+import { useData } from "@/providers/data-provider";
+import { Button } from "@/components/ui/button";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import { BACKGROUND_OPTIONS } from "@/components/backgrounds/background-snippets";
+import DisplayData from "@/components/display-data";
+
+export default function PreviewPage() {
+  const { data } = useData();
+
+  const [isEmpty, setIsEmpty] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsEmpty(isEmptyValues(data));
+  }, [data]);
+
+  const selectedBgOption = data
+    ? BACKGROUND_OPTIONS.find((option) => option.code === data.bg)
+    : null;
+
+  const selectedBgComponent = selectedBgOption
+    ? selectedBgOption.component
+    : null;
+
+  return (
+    <div className='fixed inset-x-0 bottom-0 z-10 flex items-center justify-center p-4 backdrop-blur-xs'>
+      <Drawer>
+        <DrawerTrigger asChild>
+          <Button className='rounded-base w-full max-w-[350px] overflow-y-auto tracking-wide'>
+            Preview page
+          </Button>
+        </DrawerTrigger>
+        <DrawerContent className='h-[75%] pb-2'>
+          <VisuallyHidden asChild>
+            <DrawerTitle id='page-preview-title'>Page Preview</DrawerTitle>
+          </VisuallyHidden>
+          <VisuallyHidden>
+            <DrawerDescription id='page-preview-description'>
+              Preview your new page.
+            </DrawerDescription>
+          </VisuallyHidden>
+          {isEmpty ? (
+            <div className='text-muted-foreground flex h-[90%] w-full items-center justify-center text-sm'>
+              No information.
+            </div>
+          ) : (
+            <>
+              {!isEmpty && selectedBgComponent}
+              <div className='h-full px-2 pt-10'>
+                <DisplayData acc={data} />
+              </div>
+            </>
+          )}
+        </DrawerContent>
+      </Drawer>
+    </div>
+  );
+}

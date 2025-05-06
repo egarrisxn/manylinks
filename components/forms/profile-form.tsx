@@ -1,0 +1,84 @@
+"use client";
+
+import { useData } from "@/providers/data-provider";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+type InputChangeEvent = React.ChangeEvent<
+  HTMLInputElement | HTMLTextAreaElement
+>;
+
+export default function ProfileForm() {
+  const { data, updateProfileInfo } = useData();
+
+  const handleInputChange = (event: InputChangeEvent) => {
+    const { name, value } = event.target;
+    updateProfileInfo(name, value);
+  };
+
+  return (
+    <Card className='w-full'>
+      <CardHeader className='space-y-1'>
+        <CardTitle className='text-2xl'>Profile Information</CardTitle>
+        <CardDescription>
+          Enter your profile or title information here.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className='grid gap-4'>
+        <div className='grid gap-2 md:grid-cols-2'>
+          <div>
+            <Label htmlFor='name'>Name</Label>
+            <Input
+              id='name'
+              name='n'
+              type='text'
+              placeholder='Jane Doe'
+              value={data.n}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div>
+            <Label htmlFor='Profile-url'>Image Url</Label>
+            <Input
+              id='Profile-url'
+              name='i'
+              type='url'
+              placeholder='mypage.com/avatar.png'
+              value={data.i}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className='grid gap-2'>
+          <Label htmlFor='username'>Username (URL Endpoint)</Label>
+          <Input
+            id='username'
+            name='username'
+            type='text'
+            placeholder='manylinks.vercel.app/[username]'
+            value={data.u}
+            onChange={handleInputChange}
+          />
+        </div>
+        <div className='grid gap-2'>
+          <Label htmlFor='description'>Brief Description</Label>
+          <Textarea
+            id='description'
+            name='d'
+            placeholder='Tell us a little more about yourself...'
+            value={data.d}
+            onChange={handleInputChange}
+          />
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
