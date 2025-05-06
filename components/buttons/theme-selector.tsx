@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { CheckIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { BASE_COLORS } from "@/lib/config";
+import { BASE_COLORS } from "@/lib/theme";
 import { useThemeConfig } from "@/hooks/use-theme-config";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";

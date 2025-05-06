@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { DM_Sans, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
-import { SITE_DATA } from "@/lib/config";
+import { SITE_DATA } from "@/lib/site";
 import {
   ThemeProvider,
   ActiveThemeProvider,
@@ -83,9 +83,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang='en' suppressHydrationWarning>
       <body
