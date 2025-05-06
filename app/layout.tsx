@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import { cn } from "@/lib/utils";
 import { SITE_DATA } from "@/lib/config";
 import {
@@ -105,6 +106,7 @@ export default function RootLayout({
             </SessionProvider>
           </ActiveThemeProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
