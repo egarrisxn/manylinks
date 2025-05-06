@@ -6,7 +6,7 @@
 
 ## 🚀 What is Manylinks?
 
-**Manylinks** lets you create a unique and minimalist looking Linktree alternative. **One page. Many links.**
+**Manylinks** lets you create a unique and minimalist looking Linktree alternative in no time and completely free! **One page. Many links.**
 
 ## 🛠️ Tech Stack
 
