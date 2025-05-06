@@ -10,7 +10,7 @@ export default function GoogleLogin() {
       }}
     >
       <Button type='submit' size='xs'>
-        Signin with Google
+        Google
       </Button>
     </form>
   );

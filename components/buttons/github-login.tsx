@@ -10,7 +10,7 @@ export default function GitHubLogin() {
       }}
     >
       <Button type='submit' size='xs'>
-        Signin with GitHub
+        GitHub
       </Button>
     </form>
   );

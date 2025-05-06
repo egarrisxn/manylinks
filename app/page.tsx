@@ -8,7 +8,7 @@ export default function LandingPage() {
       <header className='absolute top-0 mx-auto flex w-full flex-row items-center justify-between px-4 py-2'>
         <ThemeSelector />
         <Button asChild size='xs'>
-          <Link href='/api/auth/signin'>Sign In</Link>
+          <Link href='/signin'>Sign In</Link>
         </Button>
       </header>
       <div className='container mx-auto grid min-h-screen w-full place-items-center px-4'>
