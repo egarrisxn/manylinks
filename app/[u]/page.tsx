@@ -1,11 +1,10 @@
 import { notFound } from "next/navigation";
 import client from "@/lib/db";
-import LoadingPage from "@/app/loading";
-import ThemeSelector from "@/components/buttons/theme-selector";
-import DisplayData from "@/components/display-data";
 import { BACKGROUND_OPTIONS } from "@/components/backgrounds/background-snippets";
+import DisplayData from "@/components/display-data";
+import LoadingPage from "../loading";
 
-import { DisplayDataProps } from "@/types";
+import type { DisplayDataProps } from "@/types";
 
 const getProfileData = async (
   u: string
@@ -66,10 +65,7 @@ export default async function UsersProfilePage({
 
   return (
     <>
-      <header className='absolute top-0 z-10 mx-auto flex w-full items-start justify-start px-4 py-2'>
-        <ThemeSelector />
-      </header>
-      <div className='flex-1 pt-[4vh]'>
+      <div className='flex-1 pt-[10vh]'>
         <div className='fixed top-0 left-0 z-[-10] size-full'>
           {data.bg &&
             BACKGROUND_OPTIONS.find((option) => option.code === data.bg)

@@ -1,19 +1,15 @@
-import type { Metadata, Viewport } from "next";
-import { DM_Sans, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-import { cn } from "@/lib/utils";
+import { SessionProvider } from "@/providers/session-provider";
+import { DataProvider } from "@/providers/data-provider";
 import { SITE_DATA } from "@/lib/site";
-import {
-  ThemeProvider,
-  ActiveThemeProvider,
-  SessionProvider,
-  DataProvider,
-} from "@/providers";
 import { Toaster } from "@/components/ui/sonner";
-import "../styles/globals.css";
+import "./globals.css";
 
-export const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+import type { Metadata } from "next";
+
+export const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
@@ -71,41 +67,25 @@ export const metadata: Metadata = {
     site: SITE_DATA.handle,
     images: { url: SITE_DATA.og, alt: SITE_DATA.og },
   },
-  verification: {},
-};
-
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang='en'>
       <body
-        className={cn(
-          dmSans.variable,
-          geistMono.variable,
-          "font-sans antialiased"
-        )}
-        suppressHydrationWarning
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
-        <ThemeProvider>
-          <ActiveThemeProvider>
-            <SessionProvider>
-              <DataProvider>
-                {children}
-                <Toaster position='bottom-center' richColors />
-              </DataProvider>
-            </SessionProvider>
-          </ActiveThemeProvider>
-        </ThemeProvider>
+        <SessionProvider>
+          <DataProvider>
+            {children}
+            <Toaster position='bottom-center' richColors />
+          </DataProvider>
+        </SessionProvider>
+
         <Analytics />
       </body>
     </html>

@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/dialog";
 
 export default function PublishPage() {
-  const { data } = useData();
+  const { data, savePageData } = useData();
   const { data: session } = useSession();
   const isEmpty = isEmptyValues(data);
   const [inputLink, setInputLink] = useState<string>("");
@@ -46,35 +46,56 @@ export default function PublishPage() {
     setHasCopied(false);
   }, [data]);
 
-  const publishToDatabase = async () => {
+  // const publishToDatabase = async () => {
+  //   if (!session?.user?.id) {
+  //     toast.error("You must be signed in to save your page.");
+  //     return;
+  //   }
+
+  //   if (!isEmpty) {
+  //     try {
+  //       const response = await fetch("/api/user/save", {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(data),
+  //       });
+
+  //       if (response.ok) {
+  //         toast.success("Your page data has been saved!");
+  //         const link = `${window.location.origin}/${data.u}`;
+  //         setInputLink(link);
+  //       } else {
+  //         const errorData = await response.json();
+  //         toast.error(
+  //           errorData?.message || "Failed to save data. Please try again."
+  //         );
+  //       }
+  //     } catch (error) {
+  //       console.error("Error saving data:", error);
+  //       toast.error("An unexpected error occurred while saving.");
+  //     }
+  //   } else {
+  //     toast.error("Cannot save with empty fields.");
+  //   }
+  // };
+
+  const handlePublish = async () => {
     if (!session?.user?.id) {
       toast.error("You must be signed in to save your page.");
       return;
     }
 
     if (!isEmpty) {
-      try {
-        const response = await fetch("/api/user/save", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-          toast.success("Your page data has been saved!");
-          const link = `${window.location.origin}/${data.u}`;
-          setInputLink(link);
-        } else {
-          const errorData = await response.json();
-          toast.error(
-            errorData?.message || "Failed to save data. Please try again."
-          );
-        }
-      } catch (error) {
-        console.error("Error saving data:", error);
-        toast.error("An unexpected error occurred while saving.");
+      const result = await savePageData();
+      if (result === true) {
+        const link = `${window.location.origin}/${data.u}`;
+        setInputLink(link);
+      } else if (result && typeof result === "object" && "error" in result) {
+        toast.error(result.error);
+      } else {
+        toast.error("Failed to save data. Please try again.");
       }
     } else {
       toast.error("Cannot save with empty fields.");
@@ -112,7 +133,7 @@ export default function PublishPage() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className='w-full' onClick={publishToDatabase}>
+        <Button className='w-full' onClick={handlePublish}>
           <Send className='mr-1' />
           Save & Publish
         </Button>

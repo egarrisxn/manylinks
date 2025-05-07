@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState } from "react";
 import type { ExtraLinkProps, DataProps } from "@/types";
+import { toast } from "sonner";
 
 interface DataContextType {
   data: DataProps;
@@ -12,6 +13,7 @@ interface DataContextType {
   updateAdditionalInfo: (updatedIndex: ExtraLinkProps[]) => void;
   showSample: () => void;
   selectBackground: (bgcode: string) => void;
+  savePageData: () => Promise<boolean | { error: string }>;
 }
 
 const initialData: DataProps = {
@@ -132,6 +134,34 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     setData(sampleData);
   };
 
+  const savePageData = async () => {
+    try {
+      const response = await fetch("/api/user/save", {
+        // Your existing save API route
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast.success("Your page data has been saved!");
+        return true;
+      } else {
+        const errorData = await response.json();
+        toast.error(
+          errorData?.message || "Failed to save data. Please try again."
+        );
+        return { error: errorData?.message || "Failed to save data." };
+      }
+    } catch (error: any) {
+      console.error("Error saving data:", error);
+      toast.error("An unexpected error occurred while saving.");
+      return { error: error.message || "An unexpected error occurred." };
+    }
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -143,6 +173,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
         updateAdditionalInfo,
         showSample,
         selectBackground,
+        savePageData,
       }}
     >
       {children}

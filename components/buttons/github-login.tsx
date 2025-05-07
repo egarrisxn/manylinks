@@ -9,7 +9,7 @@ export default function GitHubLogin() {
         await signIn("github", { redirectTo: "/create" });
       }}
     >
-      <Button type='submit' size='xs'>
+      <Button type='submit' size='sm'>
         GitHub
       </Button>
     </form>

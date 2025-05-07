@@ -9,7 +9,7 @@ export default function GoogleLogin() {
         await signIn("google", { redirectTo: "/create" });
       }}
     >
-      <Button type='submit' size='xs'>
+      <Button type='submit' size='sm'>
         Google
       </Button>
     </form>

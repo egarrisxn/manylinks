@@ -4,20 +4,19 @@ import { useState, useEffect } from "react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { isEmptyValues } from "@/lib/utils";
 import { useData } from "@/providers/data-provider";
-import { Button } from "@/components/ui/button";
+import { BACKGROUND_OPTIONS } from "../backgrounds/background-snippets";
+import { Button } from "../ui/button";
 import {
   Drawer,
   DrawerContent,
   DrawerDescription,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
-import { BACKGROUND_OPTIONS } from "@/components/backgrounds/background-snippets";
-import DisplayData from "@/components/display-data";
+} from "../ui/drawer";
+import DisplayData from "../display-data";
 
 export default function PreviewPage() {
   const { data } = useData();
-
   const [isEmpty, setIsEmpty] = useState<boolean>(false);
 
   useEffect(() => {

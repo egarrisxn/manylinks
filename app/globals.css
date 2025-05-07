@@ -1,10 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
-@import "./themes.css";
-
 @theme {
   --breakpoint-xs: 30rem;
   --breakpoint-3xl: 120rem;
@@ -65,16 +61,13 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-
   --font-weight-base: 500;
   --font-weight-heading: 700;
-
   --radius-base: calc(var(--radius) - 5px);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -98,9 +91,7 @@
   --color-icon: var(--icon);
   --color-hover: var(--hover);
   --color-overlay: var(--overlay);
-
   --shadow-base: var(--shadow);
-
   --spacing-boxShadowX: var(--boxShadowX);
   --spacing-boxShadowY: var(--boxShadowX);
   --spacing-reverseBoxShadowX: var(--reverseBoxShadowX);
@@ -108,58 +99,32 @@
 }
 
 :root {
-  --radius: 0.735rem;
-
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --link: oklch(0.6 0.1205 257.04);
-  --overlay: oklch(0% 0 0 / 0.8);
-
-  --shadow: 0.5px 0.5px 0px 0px var(--border);
-
-  --boxShadowX: 0px;
-  --boxShadowY: 0px;
-  --reverseBoxShadowX: 0px;
-  --reverseBoxShadowY: 0px;
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --overlay: oklch(0% 0 0 / 0.7);
-  --shadow: 0.5px 0.5 0px 0px var(--border);
+  --background: oklch(1 0.01 255);
+  --foreground: oklch(0.2 0.01 260);
+  --card: oklch(0.7 0.175 260);
+  --card-foreground: oklch(0 0 0);
+  --popover: oklch(0.7 0.175 260);
+  --popover-foreground: oklch(0 0 0);
+  --primary: oklch(0.7 0.175 260);
+  --primary-foreground: oklch(0 0 0);
+  --secondary: oklch(1 0 0);
+  --secondary-foreground: oklch(0 0 0);
+  --muted: oklch(0.9 0.02 255);
+  --muted-foreground: oklch(0.4 0.05 260);
+  --accent: oklch(0.65 0.1 260);
+  --accent-foreground: oklch(0.1 0 0);
+  --destructive: oklch(0.6 0.245 27.325);
+  --destructive-foreground: oklch(0 0 0);
+  --border: oklch(0 0 0);
+  --input: oklch(0.9 0.005 265);
+  --ring: oklch(0 0 0);
+  --link: oklch(0.6 0.15 255);
+  --shadow: 2px 2px 0px 0px var(--border);
+  --boxShadowX: 4px;
+  --boxShadowY: 4px;
+  --reverseBoxShadowX: -4px;
+  --reverseBoxShadowY: -4px;
+  --radius: 0.625rem;
 }
 
 @layer base {

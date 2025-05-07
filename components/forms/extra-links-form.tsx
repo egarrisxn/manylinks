@@ -30,6 +30,7 @@ import { Button } from "@/components/ui/button";
 import GetIconInfo from "@/components/get-icon-info";
 import SortableLinks from "@/components/sortable-links";
 import type { DragEndEvent } from "@dnd-kit/core";
+
 import type { ExtraLinkProps } from "@/types";
 
 export default function ExtraLinksForm() {

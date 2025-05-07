@@ -61,7 +61,7 @@ export default function ProfileForm() {
           <Label htmlFor='username'>Username (URL Endpoint)</Label>
           <Input
             id='username'
-            name='username'
+            name='u'
             type='text'
             placeholder='manylinks.vercel.app/[username]'
             value={data.u}

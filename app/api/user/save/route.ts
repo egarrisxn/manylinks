@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import client from "@/lib/db";
 
-import { DataProps } from "@/types";
+import type { DataProps } from "@/types";
 
 export async function POST(req: Request) {
   const session = await auth();
@@ -15,6 +15,22 @@ export async function POST(req: Request) {
     const userId = session.user.id;
     const userData: DataProps = await req.json();
     const pagesCollection = client.db().collection("pages");
+
+    const existingPage = await pagesCollection.findOne({ userId });
+    const usernameChanged = existingPage?.username !== userData.u;
+
+    if (usernameChanged && userData.u) {
+      const conflictingPage = await pagesCollection.findOne({
+        username: userData.u,
+      });
+      if (conflictingPage && conflictingPage.userId !== userId) {
+        return NextResponse.json(
+          { message: "Username already taken." },
+          { status: 409 }
+        );
+      }
+    }
+
     const documentToSave = {
       userId: userId,
       profileUrl: userData.i,
