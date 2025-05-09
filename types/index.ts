@@ -1,25 +1,30 @@
 export interface DataProps {
-  i: string; // Image URL
-  n: string; // Name
-  u: string; // Username / URL Endpoint
-  d: string; // Description
-  e: string; // Email
-  gh: string; // GitHub URL
-  l: string; // LinkedIn URL
-  y: string; // YouTube URL
-  bl: string; // Bluesky URL
-  t: string; // Twitter URL
-  ig: string; // Instagram URL
-  w: string; // WhatsApp URL
-  tg: string; // Telegram URL
-  f: string; // Facebook URL
+  image: string; // Image URL
+  name: string; // Name
+  username: string; // Username / URL Endpoint
+  description: string; // Description
   bg: string; // Background Color
+  em: string; // Email
+  gh: string; // GitHub URL
+  li: string; // LinkedIn URL
+  yo: string; // YouTube URL
+  bl: string; // Bluesky URL
+  tw: string; // Twitter URL
+  ig: string; // Instagram URL
+  fa: string; // Facebook URL
+  di: string; // Discord URL
+  th: string; // Threads URL
+  pe: string; // Peerlist URL
+  ma: string; // Mastadon URL
+  ti: string; // TikTok URL
+  sp: string; // Spotify Url
+
   ls: ExtraLinkProps[]; // Array of extra links
 }
 
 export interface ExtraLinkProps {
   id: number;
-  i: string; // Icon identifier
+  i: string; // Icon
   l: string; // Label
   u: string; // URL
 }
@@ -29,16 +34,20 @@ export interface DisplayDataProps {
 }
 
 export const socialLinksData = {
-  e: "email",
+  em: "email",
   gh: "github",
-  l: "linkedin",
-  y: "youtube",
+  li: "linkedin",
+  yo: "youtube",
   bl: "bluesky",
-  t: "twitter",
+  tw: "twitter",
   ig: "instagram",
-  w: "whatsapp",
-  tg: "telegram",
-  f: "facebook",
+  fa: "facebook",
+  di: "discord",
+  th: "threads",
+  pe: "peerlist",
+  ma: "mastadon",
+  ti: "tiktok",
+  sp: "spotify",
 };
 
 export interface SocialLinkProviderProps {

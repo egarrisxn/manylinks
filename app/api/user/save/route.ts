@@ -17,11 +17,11 @@ export async function POST(req: Request) {
     const pagesCollection = client.db().collection("pages");
 
     const existingPage = await pagesCollection.findOne({ userId });
-    const usernameChanged = existingPage?.username !== userData.u;
+    const usernameChanged = existingPage?.username !== userData.username;
 
-    if (usernameChanged && userData.u) {
+    if (usernameChanged && userData.username) {
       const conflictingPage = await pagesCollection.findOne({
-        username: userData.u,
+        username: userData.username,
       });
       if (conflictingPage && conflictingPage.userId !== userId) {
         return NextResponse.json(
@@ -33,21 +33,25 @@ export async function POST(req: Request) {
 
     const documentToSave = {
       userId: userId,
-      profileUrl: userData.i,
-      name: userData.n,
-      username: userData.u,
-      description: userData.d,
-      email: userData.e,
-      github: userData.gh,
-      linkedin: userData.l,
-      youtube: userData.y,
-      bluesky: userData.bl,
-      twitter: userData.t,
-      instagram: userData.ig,
-      telegram: userData.tg,
-      whatsapp: userData.w,
-      facebook: userData.f,
+      profileUrl: userData.image,
+      name: userData.name,
+      username: userData.username,
+      description: userData.description,
       background: userData.bg,
+      email: userData.em,
+      github: userData.gh,
+      linkedin: userData.li,
+      youtube: userData.yo,
+      bluesky: userData.bl,
+      twitter: userData.tw,
+      instagram: userData.ig,
+      facebook: userData.fa,
+      discord: userData.di,
+      threads: userData.th,
+      peerlist: userData.pe,
+      mastodon: userData.ma,
+      tiktok: userData.ti,
+      spotify: userData.sp,
       extraLinks: userData.ls.map((link) => ({
         id: link.id,
         icon: link.i,

@@ -38,10 +38,10 @@ export default function ProfileForm() {
             <Label htmlFor='name'>Name</Label>
             <Input
               id='name'
-              name='n'
+              name='name'
               type='text'
               placeholder='Jane Doe'
-              value={data.n}
+              value={data.name}
               onChange={handleInputChange}
             />
           </div>
@@ -49,10 +49,10 @@ export default function ProfileForm() {
             <Label htmlFor='Profile-url'>Image Url</Label>
             <Input
               id='Profile-url'
-              name='i'
+              name='image'
               type='url'
               placeholder='mypage.com/avatar.png'
-              value={data.i}
+              value={data.image}
               onChange={handleInputChange}
             />
           </div>
@@ -61,10 +61,10 @@ export default function ProfileForm() {
           <Label htmlFor='username'>Username (URL Endpoint)</Label>
           <Input
             id='username'
-            name='u'
+            name='username'
             type='text'
             placeholder='manylinks.vercel.app/[username]'
-            value={data.u}
+            value={data.username}
             onChange={handleInputChange}
           />
         </div>
@@ -72,9 +72,9 @@ export default function ProfileForm() {
           <Label htmlFor='description'>Brief Description</Label>
           <Textarea
             id='description'
-            name='d'
+            name='description'
             placeholder='Tell us a little more about yourself...'
-            value={data.d}
+            value={data.description}
             onChange={handleInputChange}
           />
         </div>

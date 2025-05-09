@@ -1,60 +1,68 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { ImageIcon } from "lucide-react";
+import { UserCircle2 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ExtraLinksCard from "./extra-links-card";
 import type { DisplayDataProps } from "@/types";
 
 export default function DisplayData({ acc }: DisplayDataProps) {
   const allSocialLinksAreEmpty =
-    !acc.e &&
-    !acc.l &&
+    !acc.em &&
+    !acc.li &&
     !acc.gh &&
-    !acc.y &&
+    !acc.yo &&
     !acc.bl &&
-    !acc.t &&
+    !acc.tw &&
     !acc.ig &&
-    !acc.w &&
-    !acc.tg &&
-    !acc.f;
+    !acc.fa &&
+    !acc.di &&
+    !acc.th &&
+    !acc.pe &&
+    !acc.ma &&
+    !acc.ti &&
+    !acc.sp;
 
   const iconMap: Record<string, string> = {
-    e: "tabler:mail",
-    l: "tabler:brand-linkedin",
-    gh: "tabler:brand-github",
-    y: "tabler:brand-youtube",
-    bl: "tabler:brand-bluesky",
-    t: "tabler:brand-twitter",
-    ig: "tabler:brand-instagram",
-    w: "tabler:brand-whatsapp",
-    tg: "tabler:brand-telegram",
-    f: "tabler:brand-facebook",
+    em: "iconoir:mail",
+    li: "iconoir:linkedin",
+    gh: "iconoir:github",
+    yo: "iconoir:youtube",
+    bl: "proicons:bluesky",
+    tw: "iconoir:twitter",
+    ig: "iconoir:instagram",
+    fa: "iconoir:facebook",
+    di: "iconoir:discord",
+    th: "iconoir:threads",
+    pe: "iconoir:peerlist",
+    ma: "iconoir:mastodon",
+    ti: "iconoir:tiktok",
+    sp: "iconoir:spotify",
   };
 
   return (
     <div className='hide_scrollbar mx-auto size-full max-w-lg space-y-8 overflow-y-scroll p-2'>
       <div className='z-50 text-center'>
-        {acc.i && (
+        {acc.image && (
           <Avatar className='ring-ring mx-auto size-20 overflow-hidden rounded-full ring-3'>
             <AvatarImage
-              src={acc.i}
-              alt={`${acc.n}'s profile picture`}
+              src={acc.image}
+              alt={`${acc.name}'s profile picture`}
               className='size-full object-cover'
             />
             <AvatarFallback>
-              <ImageIcon className='text-foreground size-8' />
+              <UserCircle2 className='text-foreground size-20' />
             </AvatarFallback>
           </Avatar>
         )}
-        {acc.n && (
-          <h1 className='text-foreground/90 text-shadow-foreground/50 mt-4 text-2xl font-bold text-shadow-2xs'>
-            {acc.n}
+        {acc.name && (
+          <h1 className='text-foreground text-shadow-foreground/70 mt-4 text-2xl font-bold text-shadow-2xs'>
+            {acc.name}
           </h1>
         )}
-        {acc.d && (
-          <p className='text-foreground/80 text-shadow-foreground/50 mt-2 text-sm text-shadow-2xs'>
-            {acc.d}
+        {acc.description && (
+          <p className='text-foreground/90 mt-2 text-sm text-shadow-2xs'>
+            {acc.description}
           </p>
         )}
       </div>
@@ -62,37 +70,19 @@ export default function DisplayData({ acc }: DisplayDataProps) {
         <div className='flex flex-wrap items-center justify-center'>
           {Object.entries(acc).map(
             ([key, value]: [string, string | undefined]) => {
-              const excludedKeys = ["i", "n", "d", "bg"];
+              const excludedKeys = [
+                "image",
+                "name",
+                "description",
+                "background",
+              ];
 
               if (key !== "ls" && value && !excludedKeys.includes(key)) {
                 const propIcon = iconMap[key];
-                if (key === "e") {
-                  // Handle email link generation
+                if (key === "em") {
                   return (
                     <span className='p-1' key={key}>
                       <a href={`mailto:${value}`}>
-                        <Icon
-                          icon={propIcon}
-                          className='text-foreground/80 hover:text-foreground/100 size-6'
-                        />
-                      </a>
-                    </span>
-                  );
-                } else if (key === "w") {
-                  // Handle WhatsApp link generation
-                  const whatsappValue: string = value.startsWith(
-                    "https://wa.me/"
-                  )
-                    ? value // If it already starts with the correct prefix
-                    : `https://wa.me/${value}`;
-
-                  return (
-                    <span className='p-1' key={key}>
-                      <a
-                        href={whatsappValue}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                      >
                         <Icon
                           icon={propIcon}
                           className='text-foreground/80 hover:text-foreground/100 size-6'

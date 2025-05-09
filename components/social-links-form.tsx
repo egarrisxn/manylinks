@@ -13,20 +13,24 @@ import {
 
 import type { SocialLinkProviderProps } from "@/types";
 
-const socialLinksProvider: SocialLinkProviderProps[] = [
-  { name: "email", icon: "tabler:mail", id: "e" },
-  { name: "github", icon: "tabler:brand-github", id: "gh" },
-  { name: "linkedin", icon: "tabler:brand-linkedin", id: "l" },
-  { name: "youtube", icon: "tabler:brand-youtube", id: "y" },
-  { name: "bluesky", icon: "tabler:brand-bluesky", id: "bl" },
-  { name: "twitter", icon: "tabler:brand-twitter", id: "t" },
-  { name: "instagram", icon: "tabler:brand-instagram", id: "ig" },
-  { name: "whatsapp", icon: "tabler:brand-whatsapp", id: "w" },
-  { name: "telegram", icon: "tabler:brand-telegram", id: "tg" },
-  { name: "facebook", icon: "tabler:brand-facebook", id: "f" },
-];
-
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
+
+const socialLinksProvider: SocialLinkProviderProps[] = [
+  { name: "email", icon: "iconoir:mail", id: "em" },
+  { name: "github", icon: "iconoir:github", id: "gh" },
+  { name: "linkedin", icon: "iconoir:linkedin", id: "li" },
+  { name: "youtube", icon: "iconoir:youtube", id: "yo" },
+  { name: "bluesky", icon: "proicons:bluesky", id: "bl" },
+  { name: "twitter", icon: "iconoir:twitter", id: "tw" },
+  { name: "instagram", icon: "iconoir:instagram", id: "ig" },
+  { name: "facebook", icon: "iconoir:facebook", id: "fa" },
+  { name: "discord", icon: "iconoir:discord", id: "di" },
+  { name: "threads", icon: "iconoir:threads", id: "th" },
+  { name: "peerlist", icon: "iconoir:peerlist", id: "pe" },
+  { name: "mastodon", icon: "iconoir:mastodon", id: "ma" },
+  { name: "tiktok", icon: "iconoir:tiktok", id: "ti" },
+  { name: "spotify", icon: "iconoir:spotify", id: "sp" },
+];
 
 export default function SocialLinksForm() {
   const { data, updateSocialInfo } = useData();

@@ -8,12 +8,13 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+} from "./ui/card";
+import { Button } from "./ui/button";
 import { BACKGROUND_OPTIONS } from "./background-snippets";
 
 export default function BackgroundSelectCard() {
   const { data, selectBackground } = useData();
+
   return (
     <Card className='-mt-5 w-full'>
       <CardHeader className='space-y-1'>

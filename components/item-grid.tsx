@@ -9,7 +9,7 @@ interface Item {
   description: string;
 }
 
-const items: Item[] = [
+const cardItems: Item[] = [
   {
     Icon: Users2,
     title: "Connect everything all in one place",
@@ -48,13 +48,7 @@ const items: Item[] = [
   },
 ];
 
-interface ItemGridProps {
-  Icon: React.ElementType;
-  title: string;
-  description: string;
-}
-
-const ItemCard = ({ Icon, title, description }: ItemGridProps) => {
+const ItemCard = ({ Icon, title, description }: Item) => {
   return (
     <div className='flex flex-col items-center rounded-lg border bg-white p-4 shadow-md'>
       <div className='mt-4 mb-4'>
@@ -69,7 +63,7 @@ const ItemCard = ({ Icon, title, description }: ItemGridProps) => {
 export default function ItemGrid() {
   return (
     <div className='grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3'>
-      {items.map((item, index) => (
+      {cardItems.map((item, index) => (
         <ItemCard
           key={index}
           Icon={item.Icon}

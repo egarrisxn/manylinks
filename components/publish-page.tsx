@@ -27,8 +27,8 @@ export default function PublishPage() {
   const [hasCopied, setHasCopied] = useState<boolean>(false);
 
   const generateUrlEndpoint = useCallback(() => {
-    return `${window.location.origin}/${data.u || session?.user?.id}`;
-  }, [data.u, session?.user?.id]);
+    return `${window.location.origin}/${data.username || session?.user?.id}`;
+  }, [data.username, session?.user?.id]);
 
   const copyToClipboard = useCallback(async () => {
     try {
@@ -55,7 +55,7 @@ export default function PublishPage() {
     if (!isEmpty) {
       const result = await savePageData();
       if (result === true) {
-        const link = `${window.location.origin}/${data.u}`;
+        const link = `${window.location.origin}/${data.username}`;
         setInputLink(link);
       } else if (result && typeof result === "object" && "error" in result) {
         toast.error(result.error);
@@ -80,7 +80,7 @@ export default function PublishPage() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: `${data.n || "My"} Links - ManyLinks`,
+          title: `${data.name || "My"} Links - ManyLinks`,
           text: `Check out my links!`,
           url: inputLink,
         });

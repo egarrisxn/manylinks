@@ -18,21 +18,25 @@ const getProfileData = async (
     }
 
     const formattedData: DisplayDataProps["acc"] = {
-      i: pageData.profileUrl || "",
-      n: pageData.name || "",
-      u: pageData.username || "",
-      d: pageData.description || "",
-      e: pageData.email || "",
+      image: pageData.profileUrl || "",
+      name: pageData.name || "",
+      username: pageData.username || "",
+      description: pageData.description || "",
+      bg: pageData.bg || "",
+      em: pageData.email || "",
       gh: pageData.github || "",
-      l: pageData.linkedin || "",
-      y: pageData.youtube || "",
+      li: pageData.linkedin || "",
+      yo: pageData.youtube || "",
       bl: pageData.bluesky || "",
-      t: pageData.twitter || "",
+      tw: pageData.twitter || "",
       ig: pageData.instagram || "",
-      w: pageData.whatsapp || "",
-      tg: pageData.telegram || "",
-      f: pageData.facebook || "",
-      bg: pageData.background || "",
+      fa: pageData.facebook || "",
+      di: pageData.discord || "",
+      th: pageData.threads || "",
+      pe: pageData.peerlist || "",
+      ma: pageData.mastodon || "",
+      ti: pageData.tiktok || "",
+      sp: pageData.spotify || "",
       ls:
         pageData.extraLinks.map(
           (link: { id: any; icon: any; label: any; url: any }) => ({

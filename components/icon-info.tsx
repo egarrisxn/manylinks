@@ -25,7 +25,7 @@ export default function IconInfo() {
             Find the icon that best matches your link and copy the icon key,
             which looks like this:{" "}
             <code className='bg-acccent rounded-sm border px-1 py-0.5'>
-              ic:sharp-cloud-queue
+              tabler:brand-bluesky
             </code>
             .
           </DialogDescription>

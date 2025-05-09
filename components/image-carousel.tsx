@@ -1,13 +1,8 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-import { imageUrls } from "@/lib/site";
 
-interface CarouselProps {
-  images: string[];
-}
-
-const Carousel = ({ images }: CarouselProps) => {
+const ImageCarouselCard = ({ images }: { images: string[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -29,7 +24,7 @@ const Carousel = ({ images }: CarouselProps) => {
 
   return (
     <div
-      className='carousel-container relative mx-auto'
+      className='relative mx-auto'
       style={{ height: "515px", width: "270px" }}
     >
       {images.map((image, index) => (
@@ -48,5 +43,12 @@ const Carousel = ({ images }: CarouselProps) => {
 };
 
 export default function ImageCarousel() {
-  return <Carousel images={imageUrls} />;
+  const imageUrls: string[] = [
+    "/images/1.png",
+    "/images/2.png",
+    "/images/3.png",
+    "/images/4.png",
+  ];
+
+  return <ImageCarouselCard images={imageUrls} />;
 }

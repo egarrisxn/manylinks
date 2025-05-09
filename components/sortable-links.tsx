@@ -8,12 +8,13 @@ import { Label } from "./ui/label";
 
 import type { ExtraLinkProps } from "@/types";
 
-interface SortableLinksProps {
+export default function SortableLinks({
+  id,
+  index,
+}: {
   id: ExtraLinkProps;
   index: number;
-}
-
-export default function SortableLinks({ id, index }: SortableLinksProps) {
+}) {
   const uniqueID = id.id;
 
   const { attributes, listeners, setNodeRef, transform, transition } =

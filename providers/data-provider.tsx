@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState } from "react";
 import { toast } from "sonner";
+
 import type { ExtraLinkProps, DataProps } from "@/types";
 
 interface DataContextType {
@@ -17,41 +18,49 @@ interface DataContextType {
 }
 
 const initialData: DataProps = {
-  n: "",
-  i: "",
-  u: "",
-  d: "",
-  e: "",
-  gh: "",
-  l: "",
-  y: "",
-  bl: "",
-  t: "",
-  ig: "",
-  w: "",
-  tg: "",
-  f: "",
+  name: "",
+  image: "",
+  username: "",
+  description: "",
   bg: "",
+  em: "",
+  gh: "",
+  li: "",
+  yo: "",
+  bl: "",
+  tw: "",
+  ig: "",
+  fa: "",
+  di: "",
+  th: "",
+  pe: "",
+  ma: "",
+  ti: "",
+  sp: "",
   ls: [],
 };
 
 const sampleData: DataProps = {
-  n: "Jane Doe",
-  i: "https://manylinks.vercel.app/user.png",
-  u: "janedoe",
-  d: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent egestas ullamcorper vulputate. Curabitur finibus lorem et dolor lobortis facilisis.",
-  e: "jan_doe@email.com",
-  gh: "https://github.com/jane_doe",
-  l: "https://linkedin.com/jane_doe",
-  y: "https://youtube.com/@jane_doe",
-  bl: "https://bsky.app/profile/janedoe.bsky.social",
-  t: "https://twitter.com/jane_doe",
-  ig: "https://www.instagram.com/jane_doe",
-  w: "+15555555555",
-  tg: "https://t.me/jane_doe",
-  f: "https://www.facebook.com/jane_doe",
-
+  name: "Jane Doe",
+  image: "https://manylinks.vercel.app/user.png",
+  username: "janedoe",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent egestas ullamcorper vulputate. Curabitur finibus lorem et dolor lobortis facilisis.",
   bg: "#4F4F4F",
+  em: "jan_doe@email.com",
+  gh: "https://github.com/jane_d0e",
+  li: "https://linkedin.com/in/jane-d0e",
+  yo: "https://youtube.com/@jane_d0e",
+  bl: "https://bsky.app/profile/jane_d0e.bsky.social",
+  tw: "https://twitter.com/jane_d0e",
+  ig: "https://instagram.com/jane__d0e",
+  fa: "https://facebook.com/janed0e",
+  di: "https://discord.com/channels/@jane_d0e",
+  th: "https://threads.com/@jane_d0e",
+  pe: "https://peerlist.io/jan_d0e",
+  ma: "https://mastodon.social/@jane_d0e",
+  ti: "https://tiktok.com/jae_d0e",
+  sp: "https://spotify.com/jae_d0e",
   ls: [
     {
       id: 1,
@@ -67,20 +76,8 @@ const sampleData: DataProps = {
     },
     {
       id: 3,
-      i: "tabler:brand-discord",
-      l: "Discord",
-      u: "https://manylinks.vercel.app",
-    },
-    {
-      id: 4,
-      i: "tabler:brand-spotify",
-      l: "Spotify",
-      u: "https://manylinks.vercel.app",
-    },
-    {
-      id: 5,
-      i: "tabler:brand-threads",
-      l: "Threads",
+      i: "tabler:image-in-picture",
+      l: "Portfolio",
       u: "https://manylinks.vercel.app",
     },
   ],
@@ -137,7 +134,6 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const savePageData = async () => {
     try {
       const response = await fetch("/api/user/save", {
-        // Your existing save API route
         method: "POST",
         headers: {
           "Content-Type": "application/json",
