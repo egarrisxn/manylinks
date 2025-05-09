@@ -3,8 +3,8 @@
 import { memo, useState, useEffect } from "react";
 import { cn, isEmptyValues } from "@/lib/utils";
 import { useData } from "@/providers/data-provider";
-import { BACKGROUND_OPTIONS } from "@/components/backgrounds/background-snippets";
-import DisplayData from "@/components/display-data";
+import { BACKGROUND_OPTIONS } from "./background-snippets";
+import DisplayData from "./display-data";
 
 const MobileMockup = memo(() => {
   const { data } = useData();
@@ -24,19 +24,18 @@ const MobileMockup = memo(() => {
     : null;
 
   return (
-    <div className='border-foreground bg-foreground shadow-base relative z-50 mx-auto h-[700px] w-[350px] min-w-[350px] rounded-[42px] border-[14px]'>
-      <div className='bg-foreground absolute top-0 left-1/2 z-50 h-[18px] w-[148px] translate-x-[-50%] rounded-b-[1rem]'></div>
-      <div className='bg-foreground absolute top-[124px] left-[-17px] z-50 h-[46px] w-[4px] rounded-l-lg'></div>
-      <div className='bg-foreground absolute top-[178px] left-[-17px] z-50 h-[46px] w-[4px] rounded-l-lg'></div>
-      <div className='bg-foreground absolute top-[142px] right-[-17px] z-50 h-[64px] w-[4px] rounded-r-lg'></div>
+    <div className='border-foreground bg-foreground relative z-50 mx-auto h-[700px] w-[350px] min-w-[350px] rounded-[40px] border-[15px] shadow-sm'>
+      <div className='bg-foreground absolute top-0 left-1/2 z-50 h-[15px] w-[150px] translate-x-[-50%] rounded-b-[1rem]'>
+        <div className='bg-background/40 mx-auto size-2 rounded-full'></div>
+      </div>
       <div
         className={cn(
-          "relative size-full overflow-hidden rounded-[32px] break-words",
-          { "bg-white text-black dark:bg-black dark:text-white": !data.bg }
+          "relative size-full overflow-hidden rounded-[30px] break-words",
+          { "bg-white text-black": !data.bg }
         )}
       >
         {isEmpty ? (
-          <div className='z-20 flex size-full items-center justify-center bg-white text-sm text-black dark:bg-black dark:text-white'>
+          <div className='z-20 flex size-full items-center justify-center bg-white text-sm text-black'>
             No information.
           </div>
         ) : (

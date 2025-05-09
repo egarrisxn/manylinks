@@ -2,18 +2,18 @@
 
 import { useState, useEffect } from "react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { isEmptyValues } from "@/lib/utils";
 import { useData } from "@/providers/data-provider";
-import { BACKGROUND_OPTIONS } from "../backgrounds/background-snippets";
-import { Button } from "../ui/button";
+import { isEmptyValues } from "@/lib/utils";
+import { Button } from "./ui/button";
 import {
   Drawer,
   DrawerContent,
   DrawerDescription,
   DrawerTitle,
   DrawerTrigger,
-} from "../ui/drawer";
-import DisplayData from "../display-data";
+} from "./ui/drawer";
+import DisplayData from "./display-data";
+import { BACKGROUND_OPTIONS } from "./background-snippets";
 
 export default function PreviewPage() {
   const { data } = useData();
@@ -35,7 +35,7 @@ export default function PreviewPage() {
     <div className='fixed inset-x-0 bottom-0 z-10 flex items-center justify-center p-4 backdrop-blur-xs'>
       <Drawer>
         <DrawerTrigger asChild>
-          <Button className='rounded-base w-full max-w-[350px] overflow-y-auto tracking-wide'>
+          <Button className='w-full max-w-[350px] overflow-y-auto rounded-sm tracking-wide'>
             Preview page
           </Button>
         </DrawerTrigger>

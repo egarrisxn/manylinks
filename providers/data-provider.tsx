@@ -1,8 +1,8 @@
 "use client";
 
 import React, { createContext, useContext, useState } from "react";
-import type { ExtraLinkProps, DataProps } from "@/types";
 import { toast } from "sonner";
+import type { ExtraLinkProps, DataProps } from "@/types";
 
 interface DataContextType {
   data: DataProps;

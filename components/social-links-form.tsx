@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
 import type { SocialLinkProviderProps } from "@/types";
 
 const socialLinksProvider: SocialLinkProviderProps[] = [

@@ -5,10 +5,10 @@ import { useSession } from "next-auth/react";
 import { toast } from "sonner";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { Check, Copy, Send, Share2 } from "lucide-react";
-import { isEmptyValues } from "@/lib/utils";
 import { useData } from "@/providers/data-provider";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { isEmptyValues } from "@/lib/utils";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 import {
   Dialog,
   DialogContent,
@@ -17,7 +17,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "./ui/dialog";
 
 export default function PublishPage() {
   const { data, savePageData } = useData();
@@ -45,41 +45,6 @@ export default function PublishPage() {
   useEffect(() => {
     setHasCopied(false);
   }, [data]);
-
-  // const publishToDatabase = async () => {
-  //   if (!session?.user?.id) {
-  //     toast.error("You must be signed in to save your page.");
-  //     return;
-  //   }
-
-  //   if (!isEmpty) {
-  //     try {
-  //       const response = await fetch("/api/user/save", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(data),
-  //       });
-
-  //       if (response.ok) {
-  //         toast.success("Your page data has been saved!");
-  //         const link = `${window.location.origin}/${data.u}`;
-  //         setInputLink(link);
-  //       } else {
-  //         const errorData = await response.json();
-  //         toast.error(
-  //           errorData?.message || "Failed to save data. Please try again."
-  //         );
-  //       }
-  //     } catch (error) {
-  //       console.error("Error saving data:", error);
-  //       toast.error("An unexpected error occurred while saving.");
-  //     }
-  //   } else {
-  //     toast.error("Cannot save with empty fields.");
-  //   }
-  // };
 
   const handlePublish = async () => {
     if (!session?.user?.id) {
@@ -134,11 +99,11 @@ export default function PublishPage() {
     <Dialog>
       <DialogTrigger asChild>
         <Button className='w-full' onClick={handlePublish}>
-          <Send className='mr-1' />
-          Save & Publish
+          <Send className='mr-0.5' />
+          Publish Page
         </Button>
       </DialogTrigger>
-      <DialogContent className='sm:max-w-[425px]'>
+      <DialogContent className='flex flex-col sm:max-w-[425px]'>
         <DialogHeader>
           <DialogTitle className='flex items-center'>
             Share your page
@@ -156,13 +121,13 @@ export default function PublishPage() {
               autoFocus={false}
             />
             <DialogFooter>
-              <div className='flex w-full items-center justify-between gap-3'>
+              <div className='flex w-full flex-col items-center gap-3'>
                 <Button
                   className='w-full'
                   onClick={handleShare}
                   disabled={!inputLink && isEmpty}
                 >
-                  <Share2 className='mr-1' />
+                  <Share2 className='mr-0.5' />
                   Share
                 </Button>
                 <Button
@@ -175,12 +140,12 @@ export default function PublishPage() {
                 >
                   {hasCopied ? (
                     <>
-                      <Check className='mr-1' />
+                      <Check className='mr-0.5' />
                       Copied
                     </>
                   ) : (
                     <>
-                      <Copy className='mr-1' />
+                      <Copy className='mr-0.5' />
                       Copy Link
                     </>
                   )}

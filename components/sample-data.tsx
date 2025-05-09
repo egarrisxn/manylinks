@@ -1,16 +1,16 @@
 "use client";
 
-import { Play } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { MonitorSmartphone } from "lucide-react";
 import { useData } from "@/providers/data-provider";
+import { Button } from "./ui/button";
 
 export default function SamplePage() {
   const { showSample } = useData();
 
   return (
     <Button className='w-full' onClick={showSample}>
-      <Play className='mr-1' />
-      Sample Page
+      <MonitorSmartphone className='mr-0.5' />
+      Sample Data
     </Button>
   );
 }

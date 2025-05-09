@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import client from "@/lib/db";
-import { BACKGROUND_OPTIONS } from "@/components/backgrounds/background-snippets";
+import { BACKGROUND_OPTIONS } from "@/components/background-snippets";
 import DisplayData from "@/components/display-data";
 import LoadingPage from "../loading";
 
@@ -75,11 +75,11 @@ export default async function UsersProfilePage({
           {data ? <DisplayData acc={data} /> : <LoadingPage />}
         </div>
       </div>
-      <footer className='absolute bottom-0 z-10 mx-auto flex w-full items-center justify-center p-4 text-sm'>
+      <footer className='absolute bottom-0 z-10 mx-auto flex w-full items-center justify-center py-2 text-sm'>
         <a
           href='https://manylinks.vercel.app/'
           target='_blank'
-          className='text-muted-freground hover:text-foreground underline-offset-2 hover:underline'
+          className='text-zinc-700 hover:text-zinc-900'
         >
           Made with ManyLinks
         </a>

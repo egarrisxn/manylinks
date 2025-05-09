@@ -2,8 +2,8 @@
 
 import { Icon } from "@iconify/react";
 import { ImageIcon } from "lucide-react";
-import ExtraLinksCard from "@/components/extra-links-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ExtraLinksCard from "./extra-links-card";
 import type { DisplayDataProps } from "@/types";
 
 export default function DisplayData({ acc }: DisplayDataProps) {
@@ -48,12 +48,12 @@ export default function DisplayData({ acc }: DisplayDataProps) {
           </Avatar>
         )}
         {acc.n && (
-          <h1 className='text-foreground/90 text-shadow-foreground/50 font-heading mt-4 text-2xl text-shadow-2xs'>
+          <h1 className='text-foreground/90 text-shadow-foreground/50 mt-4 text-2xl font-bold text-shadow-2xs'>
             {acc.n}
           </h1>
         )}
         {acc.d && (
-          <p className='text-foreground/80 text-shadow-foreground/50 font-base mt-2 text-sm text-shadow-2xs'>
+          <p className='text-foreground/80 text-shadow-foreground/50 mt-2 text-sm text-shadow-2xs'>
             {acc.d}
           </p>
         )}

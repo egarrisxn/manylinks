@@ -8,9 +8,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import IFrameShell from "@/components/iframe-shell";
+import IFrameShell from "./iframe-shell";
 
-export default function GetIconInfo() {
+export default function IconInfo() {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -24,7 +24,7 @@ export default function GetIconInfo() {
           <DialogDescription>
             Find the icon that best matches your link and copy the icon key,
             which looks like this:{" "}
-            <code className='bg-acccent rounded-base border px-1 py-0.5'>
+            <code className='bg-acccent rounded-sm border px-1 py-0.5'>
               ic:sharp-cloud-queue
             </code>
             .

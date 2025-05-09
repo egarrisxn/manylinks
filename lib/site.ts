@@ -29,3 +29,10 @@ export const SITE_DATA: {
   handle: "@eg__xo",
   locale: "en_US",
 };
+
+export const imageUrls: string[] = [
+  "/images/1.png",
+  "/images/2.png",
+  "/images/3.png",
+  "/images/4.png",
+];

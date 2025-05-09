@@ -1,5 +1,6 @@
 import { signIn } from "@/lib/auth";
-import { Button } from "../ui/button";
+import { Button } from "./ui/button";
+import GitHubLineIcon from "./github-icon";
 
 export default function GitHubLogin() {
   return (
@@ -9,8 +10,10 @@ export default function GitHubLogin() {
         await signIn("github", { redirectTo: "/create" });
       }}
     >
-      <Button type='submit' size='sm'>
-        GitHub
+      <Button type='submit'>
+        <GitHubLineIcon />
+        <span className='block sm:hidden'>Login</span>
+        <span className='hidden md:block'>GitHub Login</span>
       </Button>
     </form>
   );

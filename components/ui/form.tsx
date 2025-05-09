@@ -12,6 +12,7 @@ import {
   type FieldPath,
   type FieldValues,
 } from "react-hook-form";
+
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 
@@ -28,16 +29,18 @@ const FormFieldContext = React.createContext<FormFieldContextValue>(
   {} as FormFieldContextValue
 );
 
-function FormField<
+const FormField = <
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
->({ ...props }: ControllerProps<TFieldValues, TName>) {
+>({
+  ...props
+}: ControllerProps<TFieldValues, TName>) => {
   return (
     <FormFieldContext.Provider value={{ name: props.name }}>
       <Controller {...props} />
     </FormFieldContext.Provider>
   );
-}
+};
 
 const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext);
@@ -94,7 +97,7 @@ function FormLabel({
     <Label
       data-slot='form-label'
       data-error={!!error}
-      className={cn("font-heading", className)}
+      className={cn("data-[error=true]:text-destructive", className)}
       htmlFor={formItemId}
       {...props}
     />
@@ -127,7 +130,7 @@ function FormDescription({ className, ...props }: React.ComponentProps<"p">) {
     <p
       data-slot='form-description'
       id={formDescriptionId}
-      className={cn("font-base text-foreground text-sm", className)}
+      className={cn("text-muted-foreground text-sm", className)}
       {...props}
     />
   );
@@ -145,7 +148,7 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
     <p
       data-slot='form-message'
       id={formMessageId}
-      className={cn("font-base text-sm text-red-500", className)}
+      className={cn("text-destructive text-sm", className)}
       {...props}
     >
       {body}

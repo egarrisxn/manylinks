@@ -1,5 +1,6 @@
+import { LogOut } from "lucide-react";
 import { signOut } from "@/lib/auth";
-import { Button } from "../ui/button";
+import { Button } from "./ui/button";
 
 export default function SignOut() {
   return (
@@ -9,7 +10,10 @@ export default function SignOut() {
         await signOut({ redirectTo: "/" });
       }}
     >
-      <Button size='sm'>Sign Out</Button>
+      <Button>
+        <LogOut />
+        <span className='hidden sm:block'>Sign Out</span>
+      </Button>
     </form>
   );
 }
