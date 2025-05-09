@@ -14,17 +14,18 @@ export default function ExtraLinksCard({
   return (
     <li>
       {label && url && (
-        <a href={url} target='_blank'>
-          <dt className='group bg-accent/80 group-hover:bg-accent -m-1 flex items-center space-x-2 rounded-sm p-1 shadow-sm'>
-            <div className='text-accent-foreground/80 group-hover:text-accent-foreground flex size-10 shrink-0 items-center justify-center rounded-sm'>
+        <a href={url} target='_blank' className='group'>
+          <dt className='flex items-center space-x-2 rounded-3xl border-white bg-zinc-50 shadow-lg group-hover:bg-white'>
+            <div className='text-background/90 bg-foreground/90 flex size-10 shrink-0 items-center justify-center rounded-l-3xl pl-0.5 group-hover:bg-black group-hover:text-white'>
               {icon ? (
-                <Icon icon={icon} className='size-5' />
+                <Icon icon={icon} className='size-6' />
               ) : (
-                <Icon icon='ph:link-simple' className='size-5' />
+                <Icon icon='ph:link-simple' className='size-6' />
               )}
             </div>
+
             <div className='w-full min-w-0 grow'>
-              <p className='group-hover:text-accent-foreground text-accent-foreground/80 text-sm leading-6 font-medium'>
+              <p className='text-foreground/90 text-sm leading-5 font-semibold group-hover:text-black'>
                 {label}
               </p>
             </div>

@@ -10,9 +10,9 @@ export default function SignOut() {
         await signOut({ redirectTo: "/" });
       }}
     >
-      <Button>
+      <Button size='lg' className='border border-white shadow-xl'>
         <LogOut />
-        <span className='hidden sm:block'>Sign Out</span>
+        Sign Out
       </Button>
     </form>
   );

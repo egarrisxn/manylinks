@@ -16,8 +16,8 @@ export default function BackgroundSelectCard() {
   const { data, selectBackground } = useData();
 
   return (
-    <Card className='-mt-5 w-full'>
-      <CardHeader className='space-y-1'>
+    <Card className='border-muted-foreground/10 mb-2 w-full border-2 shadow-md'>
+      <CardHeader className='space-y-0.5'>
         <CardTitle className='flex items-center justify-between text-2xl'>
           Background
         </CardTitle>
@@ -25,7 +25,7 @@ export default function BackgroundSelectCard() {
           Customize your background theme from here.
         </CardDescription>
       </CardHeader>
-      <CardContent className='pb-2.5'>
+      <CardContent className='pb-3'>
         <div className='mx-auto grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4'>
           {BACKGROUND_OPTIONS.map((background, index) => (
             <Button

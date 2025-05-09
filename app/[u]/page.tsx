@@ -75,15 +75,15 @@ export default async function UsersProfilePage({
             BACKGROUND_OPTIONS.find((option) => option.code === data.bg)
               ?.component}
         </div>
-        <div className='p-2 pt-10'>
+        <div className='px-2 pt-10 pb-2'>
           {data ? <DisplayData acc={data} /> : <LoadingPage />}
         </div>
       </div>
-      <footer className='absolute bottom-0 z-10 mx-auto flex w-full items-center justify-center py-2 text-sm'>
+      <footer className='absolute bottom-0 z-10 mx-auto flex w-full items-center justify-center py-2'>
         <a
           href='https://manylinks.vercel.app/'
           target='_blank'
-          className='text-zinc-700 hover:text-zinc-900'
+          className='text-accent-foreground/80 hover:text-accent-foreground text-sm font-medium'
         >
           Made with ManyLinks
         </a>

@@ -90,8 +90,8 @@ export default function ExtraLinksForm() {
 
   return (
     <>
-      <Card className='w-full'>
-        <CardHeader className='space-y-1'>
+      <Card className='border-muted-foreground/10 w-full border-2 shadow-md'>
+        <CardHeader>
           <CardTitle className='flex items-center justify-between text-2xl'>
             Extra Links
             <IconInfo />

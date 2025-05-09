@@ -25,8 +25,8 @@ export default function ProfileForm() {
   };
 
   return (
-    <Card className='w-full'>
-      <CardHeader className='space-y-1'>
+    <Card className='border-muted-foreground/10 mb-8 w-full border-2 shadow-md'>
+      <CardHeader>
         <CardTitle className='text-2xl'>Profile Information</CardTitle>
         <CardDescription>
           Enter your profile or title information here.
