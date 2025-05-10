@@ -16,20 +16,20 @@ import type { SocialLinkProviderProps } from "@/types";
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>;
 
 const socialLinksProvider: SocialLinkProviderProps[] = [
-  { name: "email", icon: "iconoir:mail", id: "em" },
-  { name: "github", icon: "iconoir:github", id: "gh" },
-  { name: "linkedin", icon: "iconoir:linkedin", id: "li" },
-  { name: "youtube", icon: "iconoir:youtube", id: "yo" },
-  { name: "bluesky", icon: "proicons:bluesky", id: "bl" },
-  { name: "twitter", icon: "iconoir:twitter", id: "tw" },
-  { name: "spotify", icon: "iconoir:spotify", id: "sp" },
-  { name: "discord", icon: "iconoir:discord", id: "di" },
-  { name: "instagram", icon: "iconoir:instagram", id: "ig" },
-  { name: "threads", icon: "iconoir:threads", id: "th" },
-  { name: "peerlist", icon: "iconoir:peerlist", id: "pe" },
-  { name: "mastodon", icon: "iconoir:mastodon", id: "ma" },
-  { name: "facebook", icon: "iconoir:facebook", id: "fa" },
-  { name: "tiktok", icon: "iconoir:tiktok", id: "ti" },
+  { name: "email", icon: "iconoir:mail", id: "email" },
+  { name: "github", icon: "iconoir:github", id: "github" },
+  { name: "linkedin", icon: "iconoir:linkedin", id: "linkedin" },
+  { name: "youtube", icon: "iconoir:youtube", id: "youtube" },
+  { name: "bluesky", icon: "proicons:bluesky", id: "bluesky" },
+  { name: "twitter", icon: "iconoir:twitter", id: "twitter" },
+  { name: "spotify", icon: "iconoir:spotify", id: "spotify" },
+  { name: "discord", icon: "iconoir:discord", id: "discord" },
+  { name: "instagram", icon: "iconoir:instagram", id: "instagram" },
+  { name: "threads", icon: "iconoir:threads", id: "threads" },
+  { name: "peerlist", icon: "iconoir:peerlist", id: "peerlist" },
+  { name: "mastodon", icon: "iconoir:mastodon", id: "mastodon" },
+  { name: "facebook", icon: "iconoir:facebook", id: "facebook" },
+  { name: "tiktok", icon: "iconoir:tiktok", id: "tiktok" },
 ];
 
 export default function SocialLinksForm() {

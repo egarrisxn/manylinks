@@ -3,51 +3,50 @@ export interface DataProps {
   name: string; // Name
   username: string; // Username / URL Endpoint
   description: string; // Description
-  bg: string; // Background Color
-  em: string; // Email
-  gh: string; // GitHub URL
-  li: string; // LinkedIn URL
-  yo: string; // YouTube URL
-  bl: string; // Bluesky URL
-  tw: string; // Twitter URL
-  sp: string; // Spotify Url
-  di: string; // Discord URL
-  ig: string; // Instagram URL
-  th: string; // Threads URL
-  pe: string; // Peerlist URL
-  ma: string; // Mastadon URL
-  fa: string; // Facebook URL
-  ti: string; // TikTok URL
-
+  background: string; // Background Color
+  email: string; // Email
+  github: string; // GitHub URL
+  linkedin: string; // LinkedIn URL
+  youtube: string; // YouTube URL
+  bluesky: string; // Bluesky URL
+  twitter: string; // Twitter URL
+  spotify: string; // Spotify Url
+  discord: string; // Discord URL
+  instagram: string; // Instagram URL
+  threads: string; // Threads URL
+  peerlist: string; // Peerlist URL
+  mastodon: string; // Mastadon URL
+  facebook: string; // Facebook URL
+  tiktok: string; // TikTok URL
   ls: ExtraLinkProps[]; // Array of extra links
 }
 
 export interface ExtraLinkProps {
   id: number;
-  i: string; // Icon
-  l: string; // Label
-  u: string; // URL
+  icon: string; // Icon
+  label: string; // Label
+  url: string; // URL
 }
 
 export interface DisplayDataProps {
-  acc: DataProps; // Account
+  account: DataProps; // Account
 }
 
 export const socialLinksData = {
-  em: "email",
-  gh: "github",
-  li: "linkedin",
-  yo: "youtube",
-  bl: "bluesky",
-  tw: "twitter",
-  sp: "spotify",
-  di: "discord",
-  ig: "instagram",
-  th: "threads",
-  pe: "peerlist",
-  ma: "mastadon",
-  fa: "facebook",
-  ti: "tiktok",
+  email: "email",
+  github: "github",
+  linkedin: "linkedin",
+  youtube: "youtube",
+  bluesky: "bluesky",
+  twitter: "twitter",
+  spotify: "spotify",
+  discord: "discord",
+  instagram: "instagram",
+  threads: "threads",
+  peerlist: "peerlist",
+  mastodon: "mastadon",
+  facebook: "facebook",
+  tiktok: "tiktok",
 };
 
 export interface SocialLinkProviderProps {

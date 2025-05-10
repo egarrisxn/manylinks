@@ -85,7 +85,6 @@ export default function RootLayout({
             <Toaster position='bottom-center' richColors />
           </DataProvider>
         </SessionProvider>
-
         <Analytics />
       </body>
     </html>

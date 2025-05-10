@@ -49,9 +49,9 @@ export default function ExtraLinksForm() {
   const addLinkDetailForm = () => {
     const newLink: ExtraLinkProps = {
       id: Date.now(),
-      i: "",
-      l: "",
-      u: "",
+      icon: "",
+      label: "",
+      url: "",
     };
     addNewData(newLink);
     setShouldScroll(true);

@@ -15,7 +15,7 @@ export default async function SignInPage({ searchParams }: SignInPageProps) {
 
   return (
     <div className='mx-auto flex min-h-screen w-full flex-col items-center gap-60 px-4 pt-48 sm:px-0'>
-      <section className='rounded-full shadow-xl ring-3 ring-white'>
+      <section className='rounded-full border-2 border-white shadow-lg'>
         <Image src='/icon.svg' alt='logo' height={120} width={120} />
       </section>
 
@@ -37,7 +37,7 @@ export default async function SignInPage({ searchParams }: SignInPageProps) {
             <Button
               type='submit'
               size='lg'
-              className='h-11 border border-white shadow-xl'
+              className='h-11 border border-white shadow-lg'
             >
               {provider.id === "github" && <GitHubIcon />}
               {provider.id === "google" && <GoogleIcon />}
@@ -64,7 +64,7 @@ export default async function SignInPage({ searchParams }: SignInPageProps) {
 
 //   return (
 //     <div className='mx-auto flex min-h-screen w-full flex-col items-center gap-60 px-4 pt-48 sm:px-0'>
-//       <section className='rounded-full shadow-xl ring-3 ring-white'>
+//       <section className='rounded-full shadow-lg border-2 border-white'>
 //         <Image src='/icon.svg' alt='logo' height={120} width={120} />
 //       </section>
 
@@ -86,7 +86,7 @@ export default async function SignInPage({ searchParams }: SignInPageProps) {
 //             <Button
 //               type='submit'
 //               size='lg'
-//               className='h-11 border border-white shadow-xl'
+//               className='h-11 border border-white shadow-lg'
 //             >
 //               {provider.id === "github" && <GitHubIcon />}
 //               {provider.id === "google" && <GoogleIcon />}

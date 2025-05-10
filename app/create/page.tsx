@@ -4,7 +4,7 @@ import SignOut from "@/components/sign-out";
 import ProfileForm from "@/components/profile-form";
 import SocialLinksForm from "@/components/social-links-form";
 import ExtraLinksForm from "@/components/extra-links-form";
-import BackgroundCard from "@/components/background-card";
+import BackgroundsCard from "@/components/backgrounds-card";
 import SampleData from "@/components/sample-data";
 import PublishPage from "@/components/publish-page";
 import PreviewPage from "@/components/preview-page";
@@ -15,8 +15,13 @@ export default function CreatePage() {
     <>
       <header className='3xl:shadow-none h-[8vh] shadow-lg'>
         <div className='max-w-screen-3xl mx-auto flex w-full flex-row items-center justify-between p-4'>
-          <Link href='/'>
-            <Image src='/icon.svg' alt='Logo' width={36} height={36} />
+          <Link
+            href='/'
+            className='gap-0.3 flex flex-row text-base font-black tracking-tighter'
+          >
+            <span>MANY</span>
+            <Image src='/icon.svg' alt='logo' height={24} width={24} />
+            <span>LINKS</span>
           </Link>
           <SignOut />
         </div>
@@ -28,7 +33,7 @@ export default function CreatePage() {
             <ProfileForm />
             <SocialLinksForm />
             <ExtraLinksForm />
-            <BackgroundCard />
+            <BackgroundsCard />
             <div className='grid w-full grid-cols-2 items-center justify-center gap-2 px-1 pb-4 md:gap-4'>
               <SampleData />
               <PublishPage />

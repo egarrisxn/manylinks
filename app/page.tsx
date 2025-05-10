@@ -11,11 +11,13 @@ export default function LandingPage() {
   return (
     <>
       <header className='mx-auto flex max-w-6xl items-center justify-between p-4 shadow-lg xl:shadow-none'>
-        <Link href='/' className='flex flex-row items-center gap-0.5'>
-          <Image src='/icon.svg' alt='logo' height={32} width={32} />
-          <span className='text-lg font-extrabold tracking-tight'>
-            ManyLinks
-          </span>
+        <Link
+          href='/'
+          className='gap-0.3 flex flex-row text-base font-black tracking-tighter'
+        >
+          <span>MANY</span>
+          <Image src='/icon.svg' alt='logo' height={24} width={24} />
+          <span>LINKS</span>
         </Link>
         <SignIn />
       </header>
@@ -38,7 +40,7 @@ export default function LandingPage() {
               </h2>
               <div className='mb-8 flex flex-row items-center gap-4 sm:mb-4'>
                 <Link href='/signin'>
-                  <Button size='lg' className='border border-white shadow-xl'>
+                  <Button size='lg' className='border border-white shadow-lg'>
                     Get Building
                   </Button>
                 </Link>
@@ -49,7 +51,7 @@ export default function LandingPage() {
                 >
                   <Button
                     size='lg'
-                    className='border border-white bg-[#D247BF] shadow-xl hover:bg-[#d247c0e0]'
+                    className='border border-white bg-[#D247BF] shadow-lg hover:bg-[#d247c0e0]'
                   >
                     Learn More
                   </Button>
@@ -103,7 +105,7 @@ export default function LandingPage() {
           </p>
           <div className='mx-auto mt-4 mb-20 flex items-center justify-center'>
             <Link href='/signin'>
-              <Button size='lg' className='border border-white shadow-xl'>
+              <Button size='lg' className='border border-white shadow-lg'>
                 Let&apos;s Begin
               </Button>
             </Link>
@@ -111,32 +113,28 @@ export default function LandingPage() {
         </section>
       </div>
 
-      <footer className='mx-auto grid w-full grid-cols-1 items-center justify-evenly gap-4 p-4 sm:flex-row md:grid-cols-3 md:gap-0'>
-        <div className='mx-auto flex flex-row items-center justify-center gap-0.5'>
-          <Image
-            src='/icon.svg'
-            alt='logo'
-            height={24}
-            width={24}
-            className='size-6'
-          />
-          <span className='font-extrabold tracking-tight'>ManyLinks</span>
-        </div>
-        <div className='mx-auto flex items-center justify-center'>
-          <p className='text-muted-foreground text-center text-sm tracking-tight'>
-            © 2025 ManyLinks. All Rights Reserved.
-          </p>
-        </div>
-        <div className='mx-auto hidden items-center justify-center md:flex'>
-          <a
-            href='https://github.com/egarrisxn/manylinks'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='text-[#D247BF] hover:text-[#d247c0e0]'
-          >
-            <GitHubIcon />
-          </a>
-        </div>
+      <footer className='mx-auto grid w-full grid-cols-1 items-center justify-evenly gap-4 px-4 py-6 sm:flex-row md:grid-cols-3 md:gap-0'>
+        <Link
+          href='/'
+          className='gap-0.3 mx-auto flex flex-row items-center justify-center text-sm font-black tracking-tighter'
+        >
+          <span>MANY</span>
+          <Image src='/icon.svg' alt='logo' height={16} width={16} />
+          <span>LINKS</span>
+        </Link>
+
+        <p className='text-muted-foreground mx-auto flex items-center justify-center text-center text-sm tracking-tighter'>
+          © 2025 ManyLinks. All Rights Reserved.
+        </p>
+
+        <a
+          href='https://github.com/egarrisxn/manylinks'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='mx-auto hidden size-5 items-center justify-center text-[#D247BF] hover:text-[#d247c0e0] md:flex'
+        >
+          <GitHubIcon />
+        </a>
       </footer>
     </>
   );

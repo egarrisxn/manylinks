@@ -40,10 +40,10 @@ export default function SortableLinks({
                 name='i'
                 type='text'
                 placeholder='tabler:world-www'
-                value={id.i}
+                value={id.icon}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   const newLinks = [...data.ls];
-                  newLinks[index].i = e.target.value;
+                  newLinks[index].icon = e.target.value;
                   updateAdditionalInfo(newLinks);
                 }}
               />
@@ -55,10 +55,10 @@ export default function SortableLinks({
                 name='l'
                 type='text'
                 placeholder='Website'
-                value={id.l}
+                value={id.label}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   const newLinks = [...data.ls];
-                  newLinks[index].l = e.target.value;
+                  newLinks[index].label = e.target.value;
                   updateAdditionalInfo(newLinks);
                 }}
               />
@@ -71,10 +71,10 @@ export default function SortableLinks({
               name='u'
               type='url'
               placeholder='https://example.com'
-              value={id.u}
+              value={id.url}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 const newLinks = [...data.ls];
-                newLinks[index].u = e.target.value;
+                newLinks[index].url = e.target.value;
                 updateAdditionalInfo(newLinks);
               }}
             />

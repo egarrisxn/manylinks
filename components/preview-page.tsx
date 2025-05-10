@@ -24,7 +24,7 @@ export default function PreviewPage() {
   }, [data]);
 
   const selectedBgOption = data
-    ? BACKGROUND_OPTIONS.find((option) => option.code === data.bg)
+    ? BACKGROUND_OPTIONS.find((option) => option.code === data.background)
     : null;
 
   const selectedBgComponent = selectedBgOption
@@ -56,7 +56,7 @@ export default function PreviewPage() {
             <>
               {!isEmpty && selectedBgComponent}
               <div className='h-full px-2 pt-10'>
-                <DisplayData acc={data} />
+                <DisplayData account={data} />
               </div>
             </>
           )}

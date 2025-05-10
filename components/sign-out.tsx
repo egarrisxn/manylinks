@@ -10,7 +10,7 @@ export default function SignOut() {
         await signOut({ redirectTo: "/" });
       }}
     >
-      <Button size='lg' className='border border-white shadow-xl'>
+      <Button size='lg' className='border border-white shadow-lg'>
         <LogOut />
         Sign Out
       </Button>

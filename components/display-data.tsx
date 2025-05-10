@@ -1,81 +1,81 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { UserCircle2 } from "lucide-react";
+import { User2 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ExtraLinksCard from "./extra-links-card";
 import type { DisplayDataProps } from "@/types";
 
-export default function DisplayData({ acc }: DisplayDataProps) {
+export default function DisplayData({ account }: DisplayDataProps) {
   const allSocialLinksAreEmpty =
-    !acc.em &&
-    !acc.gh &&
-    !acc.li &&
-    !acc.yo &&
-    !acc.bl &&
-    !acc.tw &&
-    !acc.sp &&
-    !acc.di &&
-    !acc.ig &&
-    !acc.th &&
-    !acc.pe &&
-    !acc.ma &&
-    !acc.fa &&
-    !acc.ti;
+    !account.email &&
+    !account.github &&
+    !account.linkedin &&
+    !account.youtube &&
+    !account.bluesky &&
+    !account.twitter &&
+    !account.spotify &&
+    !account.discord &&
+    !account.instagram &&
+    !account.threads &&
+    !account.peerlist &&
+    !account.mastodon &&
+    !account.facebook &&
+    !account.tiktok;
 
   const iconMap: Record<string, string> = {
-    em: "iconoir:mail",
-    gh: "iconoir:github",
-    li: "iconoir:linkedin",
-    yo: "iconoir:youtube",
-    bl: "proicons:bluesky",
-    tw: "iconoir:twitter",
-    sp: "iconoir:spotify",
-    di: "iconoir:discord",
-    ig: "iconoir:instagram",
-    th: "iconoir:threads",
-    pe: "iconoir:peerlist",
-    ma: "iconoir:mastodon",
-    fa: "iconoir:facebook",
-    ti: "iconoir:tiktok",
+    email: "iconoir:mail",
+    github: "iconoir:github",
+    linkedin: "iconoir:linkedin",
+    youtube: "iconoir:youtube",
+    bluesky: "proicons:bluesky",
+    twitter: "iconoir:twitter",
+    spotify: "iconoir:spotify",
+    discord: "iconoir:discord",
+    instagram: "iconoir:instagram",
+    threads: "iconoir:threads",
+    peerlist: "iconoir:peerlist",
+    mastodon: "iconoir:mastodon",
+    facebook: "iconoir:facebook",
+    tiktok: "iconoir:tiktok",
   };
 
   return (
-    <div className='hide_scrollbar mx-auto size-full max-w-lg space-y-5 overflow-y-scroll p-2'>
+    <div className='hide_scrollbar mx-auto size-full max-w-lg space-y-4 overflow-y-scroll p-2'>
       <div className='z-50 text-center'>
-        {acc.image && (
-          <Avatar className='mx-auto size-24 overflow-hidden rounded-full shadow-xl ring-3 ring-white'>
+        {account.image && (
+          <Avatar className='mx-auto size-24 overflow-hidden rounded-full border-2 border-white shadow-lg'>
             <AvatarImage
-              src={acc.image}
-              alt={`${acc.name}'s profile picture`}
+              src={account.image}
+              alt={`${account.name}'s profile picture`}
               className='size-full object-cover'
             />
             <AvatarFallback>
-              <UserCircle2 className='text-foreground size-24' />
+              <User2 className='text-foreground size-24' />
             </AvatarFallback>
           </Avatar>
         )}
-        {acc.name && (
-          <h1 className='text-foreground text-shadow-foreground/70 mt-5 text-2xl font-bold text-shadow-2xs'>
-            {acc.name}
+        {account.name && (
+          <h1 className='text-foreground mt-4 text-2xl font-bold'>
+            {account.name}
           </h1>
         )}
-        {acc.description && (
-          <p className='text-foreground mt-2.5 text-sm text-shadow-2xs'>
-            {acc.description}
+        {account.description && (
+          <p className='text-foreground mt-2 text-sm font-medium'>
+            {account.description}
           </p>
         )}
       </div>
       {!allSocialLinksAreEmpty && (
         <div className='mx-auto flex flex-wrap items-center justify-center gap-2 px-2 pb-2'>
-          {Object.entries(acc).map(
+          {Object.entries(account).map(
             ([key, value]: [string, string | undefined]) => {
               const excludedKeys = [
                 "image",
                 "name",
                 "username",
                 "description",
-                "bg",
+                "background",
               ];
               if (key !== "ls" && value && !excludedKeys.includes(key)) {
                 const propIcon = iconMap[key];
@@ -114,13 +114,13 @@ export default function DisplayData({ acc }: DisplayDataProps) {
           )}
         </div>
       )}
-      <ul className='mt-1 space-y-3 2xl:space-y-4'>
-        {acc.ls &&
-          acc.ls.map((link, id) => (
+      <ul className='20 mt-1 space-y-3 2xl:space-y-4'>
+        {account.ls &&
+          account.ls.map((link, id) => (
             <ExtraLinksCard
-              label={link.l}
-              icon={link.i}
-              url={link.u}
+              label={link.label}
+              icon={link.icon}
+              url={link.url}
               key={id}
             />
           ))}

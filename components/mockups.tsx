@@ -20,7 +20,7 @@ const variantStyles: Record<
   mobile: {
     container: "h-[700px] w-[350px] min-w-[350px] rounded-[40px] ",
     screenWrapper: "rounded-[30px]",
-    screenInner: "px-2 pt-8",
+    screenInner: "pt-6",
     extra: (
       <div className='bg-foreground absolute top-0 left-1/2 z-50 h-[15px] w-[150px] -translate-x-1/2 rounded-b-[1rem]'>
         <div className='bg-background/40 mx-auto size-2 rounded-full'></div>
@@ -30,7 +30,7 @@ const variantStyles: Record<
   laptop: {
     container: " h-[280px] w-[400px] min-w-[400px] rounded-[25px]",
     screenWrapper: "rounded-[20px]",
-    screenInner: "px-4 pt-4",
+    screenInner: "pt-1",
     extra: (
       <div className='bg-foreground relative mx-auto h-[25px] w-[450px] rounded-t-[5px] rounded-b-[20px]'>
         <div className='bg-background/40 absolute top-0 left-1/2 h-[5px] w-[15px] -translate-x-1/2 rounded-b-xl'></div>
@@ -40,7 +40,7 @@ const variantStyles: Record<
   desktop: {
     container: "h-[300px] w-[470px] min-w-[470px] rounded-[15px]",
     screenWrapper: "rounded-[10px]",
-    screenInner: "px-12 pt-4",
+    screenInner: " pt-2",
     extra: (
       <>
         <div className='bg-foreground relative z-40 mx-auto h-[45px] w-40'>
@@ -61,7 +61,7 @@ const Mockup = memo(({ variant = "mobile" }: { variant?: MockupVariant }) => {
   }, [data]);
 
   const selectedBgOption = data
-    ? BACKGROUND_OPTIONS.find((option) => option.code === data.bg)
+    ? BACKGROUND_OPTIONS.find((option) => option.code === data.background)
     : null;
 
   const selectedBgComponent = selectedBgOption?.component || null;
@@ -81,7 +81,7 @@ const Mockup = memo(({ variant = "mobile" }: { variant?: MockupVariant }) => {
           className={cn(
             styles.screenWrapper,
             "relative size-full overflow-hidden break-words",
-            { "bg-white text-black": !data?.bg }
+            { "bg-white text-black": !data?.background }
           )}
         >
           {isEmpty ? (
@@ -91,8 +91,8 @@ const Mockup = memo(({ variant = "mobile" }: { variant?: MockupVariant }) => {
           ) : (
             <>
               {selectedBgComponent}
-              <div className={cn(styles.screenInner, "h-full")}>
-                <DisplayData acc={data} />
+              <div className={cn(styles.screenInner, "h-full px-2")}>
+                <DisplayData account={data} />
               </div>
             </>
           )}

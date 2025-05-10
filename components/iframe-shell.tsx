@@ -1,7 +1,7 @@
 // origial code: https://gist.github.com/threepointone/e73a87f7bbbebc78cf71744469ec5a15
 
 import { JSX, Suspense, useLayoutEffect, useRef, useState } from "react";
-import IframeLoader from "./iframe-loader";
+import Loading from "@/app/loading";
 
 type IFrameProps = React.ComponentPropsWithRef<"iframe"> & {
   fallback?: JSX.Element;
@@ -11,7 +11,7 @@ export function IFrameShell(props: IFrameProps) {
   const { fallback, ...rest } = props;
 
   return (
-    <Suspense fallback={fallback || <IframeLoader />}>
+    <Suspense fallback={fallback || <Loading />}>
       <IFrameImplementation {...rest} />
     </Suspense>
   );

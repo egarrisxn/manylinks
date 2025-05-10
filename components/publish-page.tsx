@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { Check, Copy, Send, Share2 } from "lucide-react";
 import { useData } from "@/providers/data-provider";
-import { isEmptyValues } from "@/lib/utils";
+import { isEmptyValues, catchError } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import {
@@ -36,8 +36,7 @@ export default function PublishPage() {
       await navigator.clipboard.writeText(url);
       return url;
     } catch (error) {
-      console.error("Failed to copy to clipboard", error);
-      toast.error("Failed to copy link to clipboard");
+      catchError(error);
       return null;
     }
   }, [generateUrlEndpoint]);
@@ -85,8 +84,7 @@ export default function PublishPage() {
           url: inputLink,
         });
       } catch (error) {
-        console.error("Error sharing:", error);
-        toast.error("Failed to share. Please try again later.");
+        catchError(error);
       }
     } else {
       toast.message("Web Share API is not supported on this browser.");
