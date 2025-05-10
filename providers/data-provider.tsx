@@ -29,14 +29,14 @@ const initialData: DataProps = {
   yo: "",
   bl: "",
   tw: "",
-  ig: "",
-  fa: "",
+  sp: "",
   di: "",
+  ig: "",
   th: "",
   pe: "",
   ma: "",
+  fa: "",
   ti: "",
-  sp: "",
   ls: [],
 };
 
@@ -53,14 +53,15 @@ const sampleData: DataProps = {
   yo: "https://youtube.com/@jane_d0e",
   bl: "https://bsky.app/profile/jane_d0e.bsky.social",
   tw: "https://twitter.com/jane_d0e",
-  ig: "https://instagram.com/jane__d0e",
-  fa: "https://facebook.com/janed0e",
+  sp: "https://spotify.com/jae_d0e",
   di: "https://discord.com/channels/@jane_d0e",
+  ig: "https://instagram.com/jane__d0e",
   th: "https://threads.com/@jane_d0e",
   pe: "https://peerlist.io/jan_d0e",
   ma: "https://mastodon.social/@jane_d0e",
+  fa: "https://facebook.com/janed0e",
   ti: "https://tiktok.com/jae_d0e",
-  sp: "https://spotify.com/jae_d0e",
+
   ls: [
     {
       id: 1,

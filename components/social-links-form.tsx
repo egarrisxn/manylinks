@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useData } from "@/providers/data-provider";
-import { SocialInput } from "@/components/ui/social-input";
+import { SocialInput } from "./ui/social-input";
 import {
   Card,
   CardContent,
@@ -22,14 +22,14 @@ const socialLinksProvider: SocialLinkProviderProps[] = [
   { name: "youtube", icon: "iconoir:youtube", id: "yo" },
   { name: "bluesky", icon: "proicons:bluesky", id: "bl" },
   { name: "twitter", icon: "iconoir:twitter", id: "tw" },
-  { name: "instagram", icon: "iconoir:instagram", id: "ig" },
-  { name: "facebook", icon: "iconoir:facebook", id: "fa" },
+  { name: "spotify", icon: "iconoir:spotify", id: "sp" },
   { name: "discord", icon: "iconoir:discord", id: "di" },
+  { name: "instagram", icon: "iconoir:instagram", id: "ig" },
   { name: "threads", icon: "iconoir:threads", id: "th" },
   { name: "peerlist", icon: "iconoir:peerlist", id: "pe" },
   { name: "mastodon", icon: "iconoir:mastodon", id: "ma" },
+  { name: "facebook", icon: "iconoir:facebook", id: "fa" },
   { name: "tiktok", icon: "iconoir:tiktok", id: "ti" },
-  { name: "spotify", icon: "iconoir:spotify", id: "sp" },
 ];
 
 export default function SocialLinksForm() {
@@ -41,10 +41,10 @@ export default function SocialLinksForm() {
   };
 
   return (
-    <Card className='border-muted-foreground/10 mb-8 w-full border-2 shadow-md'>
+    <Card className='mb-3 w-full border-none shadow-none'>
       <CardHeader>
-        <CardTitle className='text-2xl'>Social Links</CardTitle>
-        <CardDescription>Enter your social media links here.</CardDescription>
+        <CardTitle className='text-3xl'>Social Links</CardTitle>
+        <CardDescription>Enter your social links here.</CardDescription>
       </CardHeader>
       <CardContent className='grid gap-4 md:grid-cols-2'>
         {socialLinksProvider.map((link) => {

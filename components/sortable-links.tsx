@@ -1,4 +1,5 @@
 "use client";
+
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { useData } from "@/providers/data-provider";
@@ -53,7 +54,7 @@ export default function SortableLinks({
                 id={`link-name-${uniqueID}`}
                 name='l'
                 type='text'
-                placeholder='Amazon'
+                placeholder='Website'
                 value={id.l}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   const newLinks = [...data.ls];

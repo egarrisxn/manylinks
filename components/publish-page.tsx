@@ -123,7 +123,7 @@ export default function PublishPage() {
             <DialogFooter>
               <div className='flex w-full flex-col items-center gap-3'>
                 <Button
-                  className='w-full'
+                  className='w-full border border-white shadow-md'
                   onClick={handleShare}
                   disabled={!inputLink && isEmpty}
                 >
@@ -131,7 +131,7 @@ export default function PublishPage() {
                   Share
                 </Button>
                 <Button
-                  className='w-full'
+                  className='w-full border border-white shadow-md'
                   onClick={async () => {
                     await copyToClipboard();
                     setHasCopied(true);
@@ -155,7 +155,7 @@ export default function PublishPage() {
           </>
         ) : (
           <DialogClose>
-            <Button className='w-full'>
+            <Button className='w-full border border-white shadow-md'>
               Can&apos;t publish with empty fields!
             </Button>
           </DialogClose>

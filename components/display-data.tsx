@@ -14,14 +14,14 @@ export default function DisplayData({ acc }: DisplayDataProps) {
     !acc.yo &&
     !acc.bl &&
     !acc.tw &&
-    !acc.ig &&
-    !acc.fa &&
+    !acc.sp &&
     !acc.di &&
+    !acc.ig &&
     !acc.th &&
     !acc.pe &&
     !acc.ma &&
-    !acc.ti &&
-    !acc.sp;
+    !acc.fa &&
+    !acc.ti;
 
   const iconMap: Record<string, string> = {
     em: "iconoir:mail",
@@ -30,14 +30,14 @@ export default function DisplayData({ acc }: DisplayDataProps) {
     yo: "iconoir:youtube",
     bl: "proicons:bluesky",
     tw: "iconoir:twitter",
-    ig: "iconoir:instagram",
-    fa: "iconoir:facebook",
+    sp: "iconoir:spotify",
     di: "iconoir:discord",
+    ig: "iconoir:instagram",
     th: "iconoir:threads",
     pe: "iconoir:peerlist",
     ma: "iconoir:mastodon",
+    fa: "iconoir:facebook",
     ti: "iconoir:tiktok",
-    sp: "iconoir:spotify",
   };
 
   return (
@@ -82,7 +82,7 @@ export default function DisplayData({ acc }: DisplayDataProps) {
                 if (key === "em") {
                   return (
                     <span
-                      className='group bg-foreground/90 cursor-pointer rounded-full border-white p-1.5 shadow-lg hover:bg-black'
+                      className='group bg-foreground/90 cursor-pointer rounded-full border-white p-1.5 shadow-md hover:bg-black'
                       key={key}
                     >
                       <a href={`mailto:${value}`}>
@@ -96,7 +96,7 @@ export default function DisplayData({ acc }: DisplayDataProps) {
                 } else {
                   return (
                     <span
-                      className='group bg-foreground/90 cursor-pointer rounded-full border-white p-1.5 shadow-lg hover:bg-black'
+                      className='group bg-foreground/90 cursor-pointer rounded-full border-white p-1.5 shadow-md hover:bg-black'
                       key={key}
                     >
                       <a href={value} target='_blank' rel='noopener noreferrer'>

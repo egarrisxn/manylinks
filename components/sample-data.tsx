@@ -8,7 +8,10 @@ export default function SamplePage() {
   const { showSample } = useData();
 
   return (
-    <Button className='w-full' onClick={showSample}>
+    <Button
+      className='w-full border border-white shadow-md'
+      onClick={showSample}
+    >
       <MonitorSmartphone className='mr-0.5' />
       Sample Data
     </Button>

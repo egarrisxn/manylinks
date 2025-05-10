@@ -10,14 +10,14 @@ export interface DataProps {
   yo: string; // YouTube URL
   bl: string; // Bluesky URL
   tw: string; // Twitter URL
-  ig: string; // Instagram URL
-  fa: string; // Facebook URL
+  sp: string; // Spotify Url
   di: string; // Discord URL
+  ig: string; // Instagram URL
   th: string; // Threads URL
   pe: string; // Peerlist URL
   ma: string; // Mastadon URL
+  fa: string; // Facebook URL
   ti: string; // TikTok URL
-  sp: string; // Spotify Url
 
   ls: ExtraLinkProps[]; // Array of extra links
 }
@@ -40,14 +40,14 @@ export const socialLinksData = {
   yo: "youtube",
   bl: "bluesky",
   tw: "twitter",
-  ig: "instagram",
-  fa: "facebook",
+  sp: "spotify",
   di: "discord",
+  ig: "instagram",
   th: "threads",
   pe: "peerlist",
   ma: "mastadon",
+  fa: "facebook",
   ti: "tiktok",
-  sp: "spotify",
 };
 
 export interface SocialLinkProviderProps {

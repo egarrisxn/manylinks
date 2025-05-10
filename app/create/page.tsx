@@ -35,6 +35,7 @@ export default function CreatePage() {
             </div>
           </div>
         </section>
+
         <section className='mx-auto hidden flex-col items-center justify-center px-2 py-3 lg:flex lg:h-[88vh] lg:w-full 2xl:col-span-7'>
           <div className='hide_scrollbar flex w-full flex-col gap-6 overflow-y-auto px-4 lg:pt-0 lg:pb-0 2xl:mx-auto 2xl:flex-row 2xl:items-center 2xl:justify-center'>
             <div className='mx-auto flex flex-col gap-6'>
@@ -46,6 +47,7 @@ export default function CreatePage() {
             </div>
           </div>
         </section>
+
         <section className='lg:hidden'>
           <PreviewPage />
         </section>

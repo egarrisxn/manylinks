@@ -29,14 +29,14 @@ const getProfileData = async (
       yo: pageData.youtube || "",
       bl: pageData.bluesky || "",
       tw: pageData.twitter || "",
-      ig: pageData.instagram || "",
-      fa: pageData.facebook || "",
+      sp: pageData.spotify || "",
       di: pageData.discord || "",
+      ig: pageData.instagram || "",
       th: pageData.threads || "",
       pe: pageData.peerlist || "",
       ma: pageData.mastodon || "",
+      fa: pageData.facebook || "",
       ti: pageData.tiktok || "",
-      sp: pageData.spotify || "",
       ls:
         pageData.extraLinks.map(
           (link: { id: any; icon: any; label: any; url: any }) => ({

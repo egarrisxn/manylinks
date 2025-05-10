@@ -90,15 +90,13 @@ export default function ExtraLinksForm() {
 
   return (
     <>
-      <Card className='border-muted-foreground/10 w-full border-2 shadow-md'>
+      <Card className='w-full border-none shadow-none'>
         <CardHeader>
-          <CardTitle className='flex items-center justify-between text-2xl'>
+          <CardTitle className='flex items-center justify-between text-3xl'>
             Extra Links
             <IconInfo />
           </CardTitle>
-          <CardDescription>
-            Enter your additional link details here.
-          </CardDescription>
+          <CardDescription>Enter additional link here.</CardDescription>
         </CardHeader>
         <CardContent className='grid gap-4'>
           <DndContext
@@ -116,7 +114,11 @@ export default function ExtraLinksForm() {
               })}
             </SortableContext>
           </DndContext>
-          <Button variant='outline' onClick={addLinkDetailForm}>
+          <Button
+            variant='outline'
+            className='border-white shadow-md'
+            onClick={addLinkDetailForm}
+          >
             +
           </Button>
         </CardContent>

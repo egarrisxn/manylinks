@@ -1,16 +1,16 @@
 "use client";
 
 import { useData } from "@/providers/data-provider";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "./ui/card";
 
 type InputChangeEvent = React.ChangeEvent<
   HTMLInputElement | HTMLTextAreaElement
@@ -25,16 +25,16 @@ export default function ProfileForm() {
   };
 
   return (
-    <Card className='border-muted-foreground/10 mb-8 w-full border-2 shadow-md'>
+    <Card className='mb-3 w-full border-none shadow-none'>
       <CardHeader>
-        <CardTitle className='text-2xl'>Profile Information</CardTitle>
+        <CardTitle className='text-3xl'>Profile Information</CardTitle>
         <CardDescription>
           Enter your profile or title information here.
         </CardDescription>
       </CardHeader>
       <CardContent className='grid gap-4'>
-        <div className='grid gap-2 md:grid-cols-2'>
-          <div>
+        <div className='grid gap-4 md:grid-cols-2'>
+          <div className='grid gap-2'>
             <Label htmlFor='name'>Name</Label>
             <Input
               id='name'
@@ -45,7 +45,7 @@ export default function ProfileForm() {
               onChange={handleInputChange}
             />
           </div>
-          <div>
+          <div className='grid gap-2'>
             <Label htmlFor='Profile-url'>Image Url</Label>
             <Input
               id='Profile-url'

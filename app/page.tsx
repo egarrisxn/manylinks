@@ -1,16 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import SignIn from "@/components/sign-in";
 import ImageCarousel from "@/components/image-carousel";
 import ItemGrid from "@/components/item-grid";
 import ImageGrid from "@/components/image-grid";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import GitHubIcon from "@/components/github-icon";
 
 export default function LandingPage() {
   return (
     <>
-      <Header />
+      <header className='mx-auto flex max-w-6xl items-center justify-between p-4 shadow-lg xl:shadow-none'>
+        <Link href='/' className='flex flex-row items-center gap-0.5'>
+          <Image src='/icon.svg' alt='logo' height={32} width={32} />
+          <span className='text-lg font-extrabold tracking-tight'>
+            ManyLinks
+          </span>
+        </Link>
+        <SignIn />
+      </header>
 
       <div className='mx-auto flex min-h-screen w-full flex-col'>
         <section className='mx-auto flex w-full max-w-5xl flex-col items-center justify-center gap-10 px-6 pt-32 md:flex-row md:justify-between md:gap-0 2xl:px-0'>
@@ -102,7 +110,34 @@ export default function LandingPage() {
           </div>
         </section>
       </div>
-      <Footer />
+
+      <footer className='mx-auto grid w-full grid-cols-1 items-center justify-evenly gap-4 p-4 sm:flex-row md:grid-cols-3 md:gap-0'>
+        <div className='mx-auto flex flex-row items-center justify-center gap-0.5'>
+          <Image
+            src='/icon.svg'
+            alt='logo'
+            height={24}
+            width={24}
+            className='size-6'
+          />
+          <span className='font-extrabold tracking-tight'>ManyLinks</span>
+        </div>
+        <div className='mx-auto flex items-center justify-center'>
+          <p className='text-muted-foreground text-center text-sm tracking-tight'>
+            © 2025 ManyLinks. All Rights Reserved.
+          </p>
+        </div>
+        <div className='mx-auto hidden items-center justify-center md:flex'>
+          <a
+            href='https://github.com/egarrisxn/manylinks'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-[#D247BF] hover:text-[#d247c0e0]'
+          >
+            <GitHubIcon />
+          </a>
+        </div>
+      </footer>
     </>
   );
 }

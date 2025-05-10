@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
-export default function ErrorPage() {
+export default function Error() {
   return (
     <section className='fixed top-[50%] left-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%]'>
       <div className='mx-auto flex max-w-sm flex-col items-center justify-center text-center'>
