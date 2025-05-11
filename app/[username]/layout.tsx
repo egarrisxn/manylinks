@@ -1,6 +1,6 @@
 import BrandLogo from "@/components/brand-logo";
 
-export default function UsersProfileLayout({
+export default function UsernameLayout({
   children,
 }: {
   children: React.ReactNode;

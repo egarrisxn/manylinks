@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { catchError } from "@/lib/utils";
 import client from "@/lib/db";
-import Loading from "@/app/loading";
 import DataDisplay from "@/components/data-display";
 import { BACKGROUND_OPTIONS } from "@/components/background-options";
 
@@ -56,7 +55,7 @@ const getProfileData = async (
   }
 };
 
-export default async function UsersProfilePage({
+export default async function UsernamePage({
   params,
 }: {
   params: Promise<{ username: string }>;
@@ -82,7 +81,7 @@ export default async function UsersProfilePage({
         {selectedBgComponent}
       </div>
       <div className='hide_scrollbar p-2 pt-10'>
-        {data ? <DataDisplay account={data} /> : <Loading />}
+        <DataDisplay account={data} />
       </div>
     </>
   );

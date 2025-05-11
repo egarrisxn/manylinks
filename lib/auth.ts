@@ -1,12 +1,13 @@
 import NextAuth from "next-auth";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
-import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
+import Twitter from "next-auth/providers/twitter";
+import GitHub from "next-auth/providers/github";
 import client from "./db";
 
 import type { Provider } from "next-auth/providers";
 
-const providers: Provider[] = [GitHub, Google];
+const providers: Provider[] = [Google, Twitter, GitHub];
 
 export const providerMap = providers
   .map((provider) => {

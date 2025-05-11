@@ -10,7 +10,6 @@ import SampleDataButton from "@/components/create/sample-data-button";
 import PublishPageButton from "@/components/create/publish-page-button";
 import PreviewPageButton from "@/components/create/preview-page-button";
 import IFrameMockup from "@/components/create/iframe-mockups";
-import Loading from "../loading";
 
 export default function CreateClient() {
   const { loadPageData, isLoaded } = useData();
@@ -21,9 +20,6 @@ export default function CreateClient() {
     }
   }, [isLoaded, loadPageData]);
 
-  if (!isLoaded) {
-    return <Loading />;
-  }
   return (
     <>
       <div className='lg:max-w-screen-3xl mx-auto grid grid-cols-1 px-2 lg:min-h-[88vh] lg:w-full lg:grid-cols-2 lg:px-0 2xl:grid-cols-12'>
