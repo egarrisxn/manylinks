@@ -25,9 +25,13 @@ export default function ProfileInfoForm() {
   return (
     <Card className='mb-3 w-full border-none shadow-none'>
       <CardHeader>
-        <CardTitle className='text-3xl'>Profile Information</CardTitle>
-        <CardDescription>
-          Enter your profile or title information here.
+        <CardTitle className='flex'>
+          <span className='to-primary bg-gradient-to-tl from-blue-900 bg-clip-text text-3xl font-bold text-transparent'>
+            Profile Information
+          </span>
+        </CardTitle>
+        <CardDescription className='text-muted-foreground font-medium'>
+          Enter your information & url endpoint here.
         </CardDescription>
       </CardHeader>
       <CardContent className='grid gap-4'>

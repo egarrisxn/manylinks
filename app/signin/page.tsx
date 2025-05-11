@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { signIn, providerMap, auth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import BrandLogo from "@/components/brand-logo";
-import BackButton from "@/components/back-button";
+import GoBackButton from "@/components/go-back-button";
 import GitHubIcon from "@/components/github-icon";
 import GoogleIcon from "@/components/google-icon";
 
@@ -24,7 +24,7 @@ export default async function SignInPage({
   return (
     <>
       <header className='mx-auto flex h-[8vh] max-w-6xl items-center justify-start p-4'>
-        <BackButton />
+        <GoBackButton />
       </header>
       <div className='mx-auto flex h-[92vh] w-full flex-col items-center gap-60 px-4 pt-32 sm:px-0'>
         <BrandLogo className='text-4xl' height={48} width={48} />

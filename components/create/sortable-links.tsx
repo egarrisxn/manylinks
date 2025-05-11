@@ -6,6 +6,7 @@ import { useData } from "@/providers/data-provider";
 import { Card } from "../ui/card";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
+import DragIcon from "./drag-icon";
 
 import type { ExtraLinkProps } from "@/types";
 
@@ -85,13 +86,7 @@ export default function SortableLinks({
           {...attributes}
           {...listeners}
         >
-          <svg viewBox='0 0 20 20' width='15'>
-            <path
-              d='M7 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 14zm6-8a2 2 0 1 0-.001-4.001A2 2 0 0 0 13 6zm0 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 14z'
-              transform='rotate(-90,10,10)'
-              fill={"currentcolor"}
-            ></path>
-          </svg>
+          <DragIcon />
         </button>
       </Card>
     </div>

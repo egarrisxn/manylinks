@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 
 export default function SignInButton() {
   return (
-    <Button asChild size='lg' className='border border-white shadow-lg'>
+    <Button asChild size='lg' variant='fun'>
       <Link href='/signin'>
         <LogIn />
         Sign In

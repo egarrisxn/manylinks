@@ -23,8 +23,14 @@ export default function SocialLinksForm() {
   return (
     <Card className='mb-3 w-full border-none shadow-none'>
       <CardHeader>
-        <CardTitle className='text-3xl'>Social Links</CardTitle>
-        <CardDescription>Enter your social links here.</CardDescription>
+        <CardTitle className='flex'>
+          <span className='to-primary bg-gradient-to-tl from-blue-900 bg-clip-text text-3xl font-bold text-transparent'>
+            Social Links
+          </span>
+        </CardTitle>
+        <CardDescription className='text-muted-foreground font-medium'>
+          Add your social links here.
+        </CardDescription>
       </CardHeader>
       <CardContent className='grid gap-4 md:grid-cols-2'>
         {socialLinks.map((link) => {

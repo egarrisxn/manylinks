@@ -1,6 +1,6 @@
 export function ImageGridItem({ images }: { images: string[] }) {
   return (
-    <div className='grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0'>
+    <div className='grid grid-cols-1 gap-4 px-12 py-4 sm:grid-cols-2 sm:px-4 lg:grid-cols-4 lg:gap-0'>
       {images.map((image, index) => (
         <div key={index} className='flex items-center justify-center'>
           <img

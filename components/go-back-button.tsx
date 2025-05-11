@@ -2,12 +2,12 @@ import Link from "next/link";
 import { LucideArrowLeftSquare } from "lucide-react";
 import { Button } from "./ui/button";
 
-export default function BackButton() {
+export default function GoBackButton() {
   return (
-    <Button asChild size='lg' className='border border-white shadow-lg'>
+    <Button asChild size='lg' variant='fun'>
       <Link href='/'>
         <LucideArrowLeftSquare />
-        Back
+        Go Back
       </Link>
     </Button>
   );

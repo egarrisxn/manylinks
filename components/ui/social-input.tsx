@@ -13,12 +13,12 @@ const SocialInput = React.forwardRef<HTMLInputElement, InputProps>(
       <div className='relative'>
         <Icon
           icon={propIcon}
-          className='absolute top-2/4 left-2.5 size-5 translate-y-[-50%]'
+          className='absolute top-2/4 left-2.5 size-5 translate-y-[-50%] text-blue-600'
         />
         <input
           type='search'
           className={cn(
-            "bg-secondary selection:bg-primary selection:text-primary-foreground text-foreground placeholder:text-foreground/50 focus-visible:ring-ring flex h-10 w-full rounded-sm border-2 px-3 py-2 pl-10 text-sm file:border-0 file:bg-transparent file:text-sm file:font-bold focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
+            "bg-secondary/80 selection:bg-primary/80 selection:text-primary-foreground text-foreground placeholder:text-foreground/50 focus-visible:ring-ring flex h-10 w-full rounded-md border-2 px-3 py-2 pl-10 text-sm file:border-0 file:bg-transparent file:text-sm file:font-bold focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:cursor-not-allowed disabled:opacity-50",
             className
           )}
           ref={ref}

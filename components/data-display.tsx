@@ -83,7 +83,7 @@ export default function DataDisplay({ account }: DataDisplayProps) {
                 if (key === "email") {
                   return (
                     <span
-                      className='group bg-foreground/90 cursor-pointer rounded-full border-white p-1.5 shadow-md hover:bg-black'
+                      className='group bg-foreground/90 cursor-pointer rounded-full border border-white p-1.5 shadow-md hover:bg-black'
                       key={key}
                     >
                       <a href={`mailto:${value}`}>
@@ -97,7 +97,7 @@ export default function DataDisplay({ account }: DataDisplayProps) {
                 } else {
                   return (
                     <span
-                      className='group bg-foreground/90 cursor-pointer rounded-full border-white p-1.5 shadow-md hover:bg-black'
+                      className='group bg-foreground/90 cursor-pointer rounded-full border border-white p-1.5 shadow-md hover:bg-black'
                       key={key}
                     >
                       <a href={value} target='_blank' rel='noopener noreferrer'>

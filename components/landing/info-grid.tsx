@@ -19,28 +19,28 @@ const cardItems: {
       "Add links to products, tips, or services so your audience can support or buy from you instantly.",
   },
   {
-    Icon: ChartBar,
-    title: "See what actually works, in real time",
-    description:
-      "Track clicks, views, and audience behavior with built-in insights designed for growth.",
-  },
-  {
     Icon: Globe,
     title: "Fully yours and fully customizable",
     description:
       "Choose layouts, themes, and styles that fit your personality or brand. Your page, your rules!",
   },
   {
+    Icon: ChartBar,
+    title: "See what actually works, in real time",
+    description:
+      "Track clicks, views, and behaviors with built-in insights designed for growth. *Coming Soon*",
+  },
+  {
     Icon: QrCode,
     title: "Share anywhere and anytime, even offline",
     description:
-      "Create QR codes for your page to share it at events, on packaging, or wherever your audience is.",
+      "Create QR codes to share at events, on packaging, or wherever your audience is. *Coming Soon*",
   },
   {
     Icon: Plug,
     title: "Works with all the best tools out there",
     description:
-      "Embed YouTube videos, collect emails, link up your store or podcast. It all just works!",
+      "Embed YouTube videos, collect emails, link up your store or podcast. It all just works! *Coming Soon*",
   },
 ];
 

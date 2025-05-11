@@ -18,6 +18,7 @@ import {
   restrictToVerticalAxis,
   restrictToParentElement,
 } from "@dnd-kit/modifiers";
+import { Info } from "lucide-react";
 import { useData } from "@/providers/data-provider";
 import {
   Card,
@@ -27,6 +28,7 @@ import {
   CardTitle,
 } from "../ui/card";
 import { Button } from "../ui/button";
+import DragIcon from "./drag-icon";
 import IconSelectCard from "./icon-select-card";
 import SortableLinks from "./sortable-links";
 
@@ -92,11 +94,31 @@ export default function ExtraLinksForm() {
     <>
       <Card className='w-full border-none shadow-none'>
         <CardHeader>
-          <CardTitle className='flex items-center justify-between text-3xl'>
-            Extra Links
+          <CardTitle className='flex items-center justify-between'>
+            <span className='to-primary bg-gradient-to-tl from-blue-900 bg-clip-text text-3xl font-bold text-transparent'>
+              Extra Links
+            </span>
             <IconSelectCard />
           </CardTitle>
-          <CardDescription>Enter additional link here.</CardDescription>
+          <CardDescription className='text-muted-foreground font-medium'>
+            <div className='flex flex-col flex-wrap items-start sm:flex-row sm:items-center sm:gap-1'>
+              <p>Enter additional link here.</p>
+              <p className='flex flex-row items-center'>
+                Use{" "}
+                <span className='inline-flex items-center px-1'>
+                  <Info className='size-3' />
+                </span>{" "}
+                to select an icon.
+              </p>
+              <p className='flex flex-row items-center'>
+                Arrange links by using{" "}
+                <span className='inline-flex items-center px-1'>
+                  <DragIcon />
+                </span>
+                .
+              </p>
+            </div>
+          </CardDescription>
         </CardHeader>
         <CardContent className='grid gap-4'>
           <DndContext
@@ -115,11 +137,11 @@ export default function ExtraLinksForm() {
             </SortableContext>
           </DndContext>
           <Button
-            variant='outline'
-            className='border-white shadow-md'
+            variant='ghost'
+            className='w-full font-semibold shadow-md'
             onClick={addLinkDetailForm}
           >
-            +
+            + Add Link
           </Button>
         </CardContent>
       </Card>

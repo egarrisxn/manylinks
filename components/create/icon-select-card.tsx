@@ -14,7 +14,13 @@ export default function IconSelectCard() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant='ghost' size='icon' id='al' aria-label='icons'>
+        <Button
+          variant='ghost'
+          size='icon'
+          id='al'
+          aria-label='icons'
+          className='shadow-md'
+        >
           <Info className='text-acccent-foreground/90 hover:text-accent-foreground size-4' />
         </Button>
       </DialogTrigger>

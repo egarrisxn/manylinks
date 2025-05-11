@@ -17,7 +17,7 @@ export default function LandingPage() {
         </section>
         <section className='mx-auto mt-32 w-full max-w-5xl px-6 2xl:px-0'>
           <h1 className='mx-auto mb-4 max-w-3xl text-center text-5xl font-bold'>
-            Your all-in-one link hub, built for creators like you
+            Your all-in-one link hub, built for everyone
           </h1>
           <p className='text-muted-foreground mx-auto mb-8 max-w-2xl px-4 text-center sm:mb-4'>
             Share more than just a link. Combine your profiles, content, store,
@@ -30,9 +30,9 @@ export default function LandingPage() {
             Make your first impression unforgettable
           </h1>
           <p className='text-muted-foreground mx-auto mb-8 max-w-2xl px-4 text-center sm:mb-4'>
-            Whether you are a creator, entrepreneur, or brand, connect your
-            audience to everything you offer with a sleek micro-site that iss
-            always up to date.
+            Whether you&#39;re a creator, entrepreneur, or brand, connect your
+            audience to everything you offer with your up-to-date sleek
+            microsite.
           </p>
           <div className='group relative mt-4 mb-12'>
             <ImageGrid />

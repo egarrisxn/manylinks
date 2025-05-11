@@ -95,7 +95,7 @@ export default function PublishPage() {
 
   return (
     <>
-      <Button className='w-full' onClick={handlePublish}>
+      <Button variant='fun' className='w-full' onClick={handlePublish}>
         <Send className='mr-0.5' />
         Publish Page
       </Button>
@@ -116,7 +116,8 @@ export default function PublishPage() {
           <DialogFooter>
             <div className='flex w-full flex-col items-center gap-3'>
               <Button
-                className='w-full border border-white shadow-md'
+                variant='fun'
+                className='w-full'
                 onClick={handleShare}
                 disabled={!inputLink}
               >
@@ -124,7 +125,8 @@ export default function PublishPage() {
                 Share
               </Button>
               <Button
-                className='w-full border border-white shadow-md'
+                variant='fun'
+                className='w-full'
                 onClick={async () => {
                   const copiedLink = await copyToClipboard();
                   if (copiedLink) {

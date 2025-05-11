@@ -13,7 +13,7 @@ export default function ExtraLinksCard({
     <li>
       {label && url && (
         <a href={url} target='_blank' className='group'>
-          <dt className='flex items-center space-x-2 rounded-3xl border-white bg-zinc-50 shadow-md group-hover:bg-white'>
+          <dt className='flex items-center space-x-2 rounded-3xl border border-white bg-zinc-50 shadow-md group-hover:bg-white'>
             <div className='text-background/90 bg-foreground/90 flex size-12 shrink-0 items-center justify-center rounded-l-3xl pl-0.5 group-hover:bg-black group-hover:text-white'>
               {icon ? (
                 <Icon icon={icon} className='size-6' />
