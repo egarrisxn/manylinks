@@ -3,13 +3,11 @@
 import { memo, useState, useEffect, JSX } from "react";
 import { cn, isEmptyValues } from "@/lib/utils";
 import { useData } from "@/providers/data-provider";
-import { BACKGROUND_OPTIONS } from "./background-snippets";
-import DisplayData from "./display-data";
-
-type MockupVariant = "mobile" | "laptop" | "desktop";
+import { BACKGROUND_OPTIONS } from "../background-options";
+import DataDisplay from "../data-display";
 
 const variantStyles: Record<
-  MockupVariant,
+  "mobile" | "laptop" | "desktop",
   {
     container: string;
     screenWrapper: string;
@@ -52,57 +50,59 @@ const variantStyles: Record<
   },
 };
 
-const Mockup = memo(({ variant = "mobile" }: { variant?: MockupVariant }) => {
-  const { data } = useData();
-  const [isEmpty, setIsEmpty] = useState(false);
+const IFrameMockup = memo(
+  ({ variant = "mobile" }: { variant?: "mobile" | "laptop" | "desktop" }) => {
+    const { data } = useData();
+    const [isEmpty, setIsEmpty] = useState(false);
 
-  useEffect(() => {
-    setIsEmpty(isEmptyValues(data));
-  }, [data]);
+    useEffect(() => {
+      setIsEmpty(isEmptyValues(data));
+    }, [data]);
 
-  const selectedBgOption = data
-    ? BACKGROUND_OPTIONS.find((option) => option.code === data.background)
-    : null;
+    const selectedBgOption = data
+      ? BACKGROUND_OPTIONS.find((option) => option.code === data.background)
+      : null;
 
-  const selectedBgComponent = selectedBgOption?.component || null;
-  const styles = variantStyles[variant];
+    const selectedBgComponent = selectedBgOption?.component || null;
+    const styles = variantStyles[variant];
 
-  return (
-    <div className='flex flex-col items-center justify-center'>
-      <div
-        className={cn(
-          styles.container,
-          "bg-foreground border-foreground relative z-50 border-[15px] shadow-sm"
-        )}
-      >
-        {variant === "mobile" && styles.extra}
-
+    return (
+      <div className='flex flex-col items-center justify-center'>
         <div
           className={cn(
-            styles.screenWrapper,
-            "relative size-full overflow-hidden break-words",
-            { "bg-white text-black": !data?.background }
+            styles.container,
+            "bg-foreground border-foreground relative z-50 border-[15px] shadow-sm"
           )}
         >
-          {isEmpty ? (
-            <div className='z-20 flex size-full items-center justify-center bg-white text-sm text-black'>
-              No information.
-            </div>
-          ) : (
-            <>
-              {selectedBgComponent}
-              <div className={cn(styles.screenInner, "h-full px-2")}>
-                <DisplayData account={data} />
+          {variant === "mobile" && styles.extra}
+
+          <div
+            className={cn(
+              styles.screenWrapper,
+              "relative size-full overflow-hidden break-words",
+              { "bg-white text-black": !data?.background }
+            )}
+          >
+            {isEmpty ? (
+              <div className='z-20 flex size-full items-center justify-center bg-white text-sm text-black'>
+                No information.
               </div>
-            </>
-          )}
+            ) : (
+              <>
+                {selectedBgComponent}
+                <div className={cn(styles.screenInner, "h-full px-2")}>
+                  <DataDisplay account={data} />
+                </div>
+              </>
+            )}
+          </div>
         </div>
+        {variant !== "mobile" && styles.extra}
       </div>
-      {variant !== "mobile" && styles.extra}
-    </div>
-  );
-});
+    );
+  }
+);
 
-Mockup.displayName = "Mockup";
+IFrameMockup.displayName = "IFrameMockup";
 
-export default Mockup;
+export default IFrameMockup;

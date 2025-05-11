@@ -1,25 +1,23 @@
 "use client";
 
 import { useData } from "@/providers/data-provider";
-import { Label } from "./ui/label";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
+import { Label } from "../ui/label";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "./ui/card";
+} from "../ui/card";
 
-type InputChangeEvent = React.ChangeEvent<
-  HTMLInputElement | HTMLTextAreaElement
->;
-
-export default function ProfileForm() {
+export default function ProfileInfoForm() {
   const { data, updateProfileInfo } = useData();
 
-  const handleInputChange = (event: InputChangeEvent) => {
+  const handleInputChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = event.target;
     updateProfileInfo(name, value);
   };

@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-const ImageCarouselCard = ({ images }: { images: string[] }) => {
+export function ImageCarouselItem({ images }: { images: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -40,15 +40,4 @@ const ImageCarouselCard = ({ images }: { images: string[] }) => {
       ))}
     </div>
   );
-};
-
-export default function ImageCarousel() {
-  const imageUrls: string[] = [
-    "/images/1.png",
-    "/images/2.png",
-    "/images/3.png",
-    "/images/4.png",
-  ];
-
-  return <ImageCarouselCard images={imageUrls} />;
 }

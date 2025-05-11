@@ -1,15 +1,11 @@
-"use client";
-
-import React from "react";
 import { Users2, Store, ChartBar, Globe, QrCode, Plug } from "lucide-react";
+import { InfoGridItem } from "./info-grid-item";
 
-interface Item {
+const cardItems: {
   Icon: React.ElementType;
   title: string;
   description: string;
-}
-
-const cardItems: Item[] = [
+}[] = [
   {
     Icon: Users2,
     title: "Connect everything all in one place",
@@ -48,23 +44,11 @@ const cardItems: Item[] = [
   },
 ];
 
-const ItemCard = ({ Icon, title, description }: Item) => {
-  return (
-    <div className='flex flex-col items-center rounded-lg border bg-white p-4 shadow-md'>
-      <div className='mt-4 mb-4'>
-        <Icon className='h-16 w-14 text-[#D247BF]' />
-      </div>
-      <h2 className='mb-2 text-center text-xl font-semibold'>{title}</h2>
-      <p className='text-center'>{description}</p>
-    </div>
-  );
-};
-
-export default function ItemGrid() {
+export default function InfoGrid() {
   return (
     <div className='grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3'>
       {cardItems.map((item, index) => (
-        <ItemCard
+        <InfoGridItem
           key={index}
           Icon={item.Icon}
           title={item.title}

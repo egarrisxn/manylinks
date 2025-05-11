@@ -2,9 +2,9 @@
 
 import { MonitorSmartphone } from "lucide-react";
 import { useData } from "@/providers/data-provider";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
-export default function SamplePage() {
+export default function SampleDataButton() {
   const { showSample } = useData();
 
   return (

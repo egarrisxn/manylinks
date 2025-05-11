@@ -1,8 +1,4 @@
-interface ImageGridProps {
-  images: string[];
-}
-
-function ImageGridCard({ images }: ImageGridProps) {
+export function ImageGridItem({ images }: { images: string[] }) {
   return (
     <div className='grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0'>
       {images.map((image, index) => (
@@ -18,15 +14,4 @@ function ImageGridCard({ images }: ImageGridProps) {
       ))}
     </div>
   );
-}
-
-export default function ImageGrid() {
-  const imageUrls: string[] = [
-    "/images/1.png",
-    "/images/2.png",
-    "/images/3.png",
-    "/images/4.png",
-  ];
-
-  return <ImageGridCard images={imageUrls} />;
 }

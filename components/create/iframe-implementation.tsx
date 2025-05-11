@@ -1,23 +1,10 @@
 // origial code: https://gist.github.com/threepointone/e73a87f7bbbebc78cf71744469ec5a15
 
-import { JSX, Suspense, useLayoutEffect, useRef, useState } from "react";
-import Loading from "@/app/loading";
+import { useLayoutEffect, useRef, useState } from "react";
 
-type IFrameProps = React.ComponentPropsWithRef<"iframe"> & {
-  fallback?: JSX.Element;
-};
-
-export function IFrameShell(props: IFrameProps) {
-  const { fallback, ...rest } = props;
-
-  return (
-    <Suspense fallback={fallback || <Loading />}>
-      <IFrameImplementation {...rest} />
-    </Suspense>
-  );
-}
-
-function IFrameImplementation(props: React.ComponentPropsWithRef<"iframe">) {
+export default function IFrameImplementation(
+  props: React.ComponentPropsWithRef<"iframe">
+) {
   const awaiter = useRef<null | {
     promise: null | Promise<void>;
     resolve: () => void;
@@ -63,5 +50,3 @@ function IFrameImplementation(props: React.ComponentPropsWithRef<"iframe">) {
     />
   );
 }
-
-export default IFrameShell;

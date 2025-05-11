@@ -4,10 +4,10 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "./ui/card";
-import BackgroundOptions from "./background-options";
+} from "../ui/card";
+import BackgroundSelectGrid from "./background-select-grid";
 
-export default function BackgroundsCard() {
+export default function BackgroundSelectShell() {
   return (
     <Card className='mb-3 w-full border-none shadow-none'>
       <CardHeader>
@@ -15,7 +15,7 @@ export default function BackgroundsCard() {
         <CardDescription>Customize your background theme here.</CardDescription>
       </CardHeader>
       <CardContent>
-        <BackgroundOptions />
+        <BackgroundSelectGrid />
       </CardContent>
     </Card>
   );

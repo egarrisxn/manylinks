@@ -2,98 +2,21 @@
 
 import React, { createContext, useContext, useState } from "react";
 import { toast } from "sonner";
+import { catchError } from "@/lib/utils";
+import {
+  initialData,
+  sampleData,
+  saveUserData,
+  loadUserData,
+} from "@/lib/data";
 
-import type { ExtraLinkProps, DataProps } from "@/types";
-
-interface DataContextType {
-  data: DataProps;
-  addNewData: (userData: ExtraLinkProps) => void;
-  updateIndex: (updatedIndex: ExtraLinkProps[]) => void;
-  updateProfileInfo: (name: string, value: string) => void;
-  updateSocialInfo: (name: string, value: string) => void;
-  updateAdditionalInfo: (updatedIndex: ExtraLinkProps[]) => void;
-  showSample: () => void;
-  selectBackground: (bgcode: string) => void;
-  savePageData: () => Promise<boolean | { error: string }>;
-}
-
-const initialData: DataProps = {
-  name: "",
-  image: "",
-  username: "",
-  description: "",
-  background: "",
-  email: "",
-  github: "",
-  linkedin: "",
-  youtube: "",
-  bluesky: "",
-  twitter: "",
-  spotify: "",
-  discord: "",
-  instagram: "",
-  threads: "",
-  peerlist: "",
-  mastodon: "",
-  facebook: "",
-  tiktok: "",
-  ls: [],
-};
-
-const sampleData: DataProps = {
-  name: "Jane Doe",
-  image: "https://manylinks.vercel.app/user.png",
-  username: "janedoe",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent egestas ullamcorper vulputate. Curabitur finibus lorem et dolor lobortis facilisis.",
-  background: "#4F4F4F",
-  email: "jan_doe@email.com",
-  github: "https://github.com/jane_d0e",
-  linkedin: "https://linkedin.com/in/jane-d0e",
-  youtube: "https://youtube.com/@jane_d0e",
-  bluesky: "https://bsky.app/profile/jane_d0e.bsky.social",
-  twitter: "https://twitter.com/jane_d0e",
-  spotify: "https://spotify.com/jae_d0e",
-  discord: "https://discord.com/channels/@jane_d0e",
-  instagram: "https://instagram.com/jane__d0e",
-  threads: "https://threads.com/@jane_d0e",
-  peerlist: "https://peerlist.io/jan_d0e",
-  mastodon: "https://mastodon.social/@jane_d0e",
-  facebook: "https://facebook.com/janed0e",
-  tiktok: "https://tiktok.com/jae_d0e",
-  ls: [
-    {
-      id: 1,
-      icon: "tabler:world-www",
-      label: "Website",
-      url: "https://manylinks.vercel.app",
-    },
-    {
-      id: 2,
-      icon: "tabler:user-edit",
-      label: "Blog",
-      url: "https://manylinks.vercel.app",
-    },
-    {
-      id: 3,
-      icon: "tabler:image-in-picture",
-      label: "Portfolio",
-      url: "https://manylinks.vercel.app",
-    },
-  ],
-};
+import type { DataContextType, DataProps, ExtraLinkProps } from "@/types";
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
 
 export const DataProvider = ({ children }: { children: React.ReactNode }) => {
   const [data, setData] = useState<DataProps>(initialData);
-
-  const selectBackground = (bgcode: string) => {
-    setData((prevState) => ({
-      ...prevState,
-      background: bgcode,
-    }));
-  };
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const addNewData = (userData: ExtraLinkProps) => {
     setData((prevData) => ({
@@ -109,13 +32,6 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     }));
   };
 
-  const updateAdditionalInfo = (updatedIndex: ExtraLinkProps[]) => {
-    setData((prevState) => ({
-      ...prevState,
-      ls: updatedIndex,
-    }));
-  };
-
   const updateProfileInfo = (name: string, value: string) => {
     setData((prevState) => ({
       ...prevState,
@@ -123,8 +39,25 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     }));
   };
 
+  const updateAdditionalInfo = (updatedIndex: ExtraLinkProps[]) => {
+    setData((prevState) => ({
+      ...prevState,
+      ls: updatedIndex,
+    }));
+  };
+
   const updateSocialInfo = (name: string, value: string) => {
-    setData((prevData) => ({ ...prevData, [name]: value }));
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const selectBackground = (bgcode: string) => {
+    setData((prevState) => ({
+      ...prevState,
+      background: bgcode,
+    }));
   };
 
   const showSample = () => {
@@ -133,28 +66,52 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
 
   const savePageData = async () => {
     try {
-      const response = await fetch("/api/user/save", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.ok) {
+      const result = await saveUserData(data);
+      if (result?.success === true) {
         toast.success("Your page data has been saved!");
         return true;
-      } else {
-        const errorData = await response.json();
-        toast.error(
-          errorData?.message || "Failed to save data. Please try again."
-        );
-        return { error: errorData?.message || "Failed to save data." };
+      } else if (result && result.error) {
+        toast.error(result.error);
+        return { error: result.error };
       }
-    } catch (error: any) {
-      console.error("Error saving data:", error);
-      toast.error("An unexpected error occurred while saving.");
-      return { error: error.message || "An unexpected error occurred." };
+      return { error: "An unexpected error occurred." };
+    } catch (error) {
+      catchError(error);
+      return { error: "An unexpected error occurred." };
+    }
+  };
+
+  const loadPageData = async () => {
+    if (isLoaded) return;
+    try {
+      const savedData = await loadUserData();
+      if (savedData) {
+        setData({
+          name: savedData.name || "",
+          image: savedData.profileUrl || "",
+          username: savedData.username || "",
+          description: savedData.description || "",
+          background: savedData.background || "",
+          email: savedData.email || "",
+          github: savedData.github || "",
+          linkedin: savedData.linkedin || "",
+          youtube: savedData.youtube || "",
+          bluesky: savedData.bluesky || "",
+          twitter: savedData.twitter || "",
+          spotify: savedData.spotify || "",
+          discord: savedData.discord || "",
+          instagram: savedData.instagram || "",
+          threads: savedData.threads || "",
+          peerlist: savedData.peerlist || "",
+          mastodon: savedData.mastodon || "",
+          facebook: savedData.facebook || "",
+          tiktok: savedData.tiktok || "",
+          ls: savedData.extraLinks || [],
+        });
+        setIsLoaded(true);
+      }
+    } catch (error) {
+      catchError(error);
     }
   };
 
@@ -162,6 +119,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     <DataContext.Provider
       value={{
         data,
+        isLoaded,
         addNewData,
         updateIndex,
         updateProfileInfo,
@@ -170,6 +128,7 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
         showSample,
         selectBackground,
         savePageData,
+        loadPageData,
       }}
     >
       {children}

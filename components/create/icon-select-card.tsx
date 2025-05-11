@@ -1,5 +1,5 @@
 import { Info } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 import {
   Dialog,
   DialogContent,
@@ -7,10 +7,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
+} from "../ui/dialog";
 import IFrameShell from "./iframe-shell";
 
-export default function IconInfo() {
+export default function IconSelectCard() {
   return (
     <Dialog>
       <DialogTrigger asChild>

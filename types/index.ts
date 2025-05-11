@@ -1,38 +1,38 @@
 export interface DataProps {
-  image: string; // Image URL
-  name: string; // Name
-  username: string; // Username / URL Endpoint
-  description: string; // Description
-  background: string; // Background Color
-  email: string; // Email
-  github: string; // GitHub URL
-  linkedin: string; // LinkedIn URL
-  youtube: string; // YouTube URL
-  bluesky: string; // Bluesky URL
-  twitter: string; // Twitter URL
-  spotify: string; // Spotify Url
-  discord: string; // Discord URL
-  instagram: string; // Instagram URL
-  threads: string; // Threads URL
-  peerlist: string; // Peerlist URL
-  mastodon: string; // Mastadon URL
-  facebook: string; // Facebook URL
-  tiktok: string; // TikTok URL
-  ls: ExtraLinkProps[]; // Array of extra links
+  image: string;
+  name: string;
+  username: string;
+  description: string;
+  background: string;
+  email: string;
+  github: string;
+  linkedin: string;
+  youtube: string;
+  bluesky: string;
+  twitter: string;
+  spotify: string;
+  discord: string;
+  instagram: string;
+  threads: string;
+  peerlist: string;
+  mastodon: string;
+  facebook: string;
+  tiktok: string;
+  ls: ExtraLinkProps[];
 }
 
 export interface ExtraLinkProps {
   id: number;
-  icon: string; // Icon
-  label: string; // Label
-  url: string; // URL
+  icon: string;
+  label: string;
+  url: string;
 }
 
-export interface DisplayDataProps {
-  account: DataProps; // Account
+export interface DataDisplayProps {
+  account: DataProps;
 }
 
-export const socialLinksData = {
+export const socialData = {
   email: "email",
   github: "github",
   linkedin: "linkedin",
@@ -49,8 +49,22 @@ export const socialLinksData = {
   tiktok: "tiktok",
 };
 
-export interface SocialLinkProviderProps {
+export interface SocialLinksProps {
   name: string;
   icon: string;
-  id: keyof typeof socialLinksData;
+  id: keyof typeof socialData;
+}
+
+export interface DataContextType {
+  data: DataProps;
+  isLoaded: boolean;
+  addNewData: (userData: ExtraLinkProps) => void;
+  updateIndex: (updatedIndex: ExtraLinkProps[]) => void;
+  updateProfileInfo: (name: string, value: string) => void;
+  updateSocialInfo: (name: string, value: string) => void;
+  updateAdditionalInfo: (updatedIndex: ExtraLinkProps[]) => void;
+  showSample: () => void;
+  selectBackground: (bgcode: string) => void;
+  savePageData: () => Promise<boolean | { error: string }>;
+  loadPageData: () => Promise<void>;
 }

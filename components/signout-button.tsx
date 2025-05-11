@@ -2,7 +2,7 @@ import { LogOut } from "lucide-react";
 import { signOut } from "@/lib/auth";
 import { Button } from "./ui/button";
 
-export default function SignOut() {
+export default function SignOutButton() {
   return (
     <form
       action={async () => {

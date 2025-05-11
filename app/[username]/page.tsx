@@ -2,14 +2,14 @@ import { notFound } from "next/navigation";
 import { catchError } from "@/lib/utils";
 import client from "@/lib/db";
 import Loading from "@/app/loading";
-import DisplayData from "@/components/display-data";
-import { BACKGROUND_OPTIONS } from "@/components/background-snippets";
+import DataDisplay from "@/components/data-display";
+import { BACKGROUND_OPTIONS } from "@/components/background-options";
 
-import type { DisplayDataProps } from "@/types";
+import type { DataDisplayProps } from "@/types";
 
 const getProfileData = async (
   username: string
-): Promise<DisplayDataProps["account"] | null> => {
+): Promise<DataDisplayProps["account"] | null> => {
   try {
     const pagesCollection = client.db().collection("pages");
     const pageData = await pagesCollection.findOne({ username: username });
@@ -18,7 +18,7 @@ const getProfileData = async (
       return null;
     }
 
-    const formattedData: DisplayDataProps["account"] = {
+    const formattedData: DataDisplayProps["account"] = {
       image: pageData.profileUrl || "",
       name: pageData.name || "",
       username: pageData.username || "",
@@ -82,7 +82,7 @@ export default async function UsersProfilePage({
         {selectedBgComponent}
       </div>
       <div className='hide_scrollbar p-2 pt-10'>
-        {data ? <DisplayData account={data} /> : <Loading />}
+        {data ? <DataDisplay account={data} /> : <Loading />}
       </div>
     </>
   );

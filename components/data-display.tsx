@@ -2,11 +2,12 @@
 
 import { Icon } from "@iconify/react";
 import { User2 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import ExtraLinksCard from "./extra-links-card";
-import type { DisplayDataProps } from "@/types";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import ExtraLinksCard from "./create/extra-links-card";
 
-export default function DisplayData({ account }: DisplayDataProps) {
+import type { DataDisplayProps } from "@/types";
+
+export default function DataDisplay({ account }: DataDisplayProps) {
   const allSocialLinksAreEmpty =
     !account.email &&
     !account.github &&
@@ -41,7 +42,7 @@ export default function DisplayData({ account }: DisplayDataProps) {
   };
 
   return (
-    <div className='hide_scrollbar mx-auto size-full max-w-lg space-y-4 overflow-y-scroll p-2'>
+    <div className='hide_scrollbar mx-auto size-full max-w-lg space-y-6 overflow-y-scroll p-2'>
       <div className='z-50 text-center'>
         {account.image && (
           <Avatar className='mx-auto size-24 overflow-hidden rounded-full border-2 border-white shadow-lg'>
@@ -56,7 +57,7 @@ export default function DisplayData({ account }: DisplayDataProps) {
           </Avatar>
         )}
         {account.name && (
-          <h1 className='text-foreground mt-4 text-2xl font-bold'>
+          <h1 className='text-foreground mt-5 text-2xl font-bold'>
             {account.name}
           </h1>
         )}
@@ -67,7 +68,7 @@ export default function DisplayData({ account }: DisplayDataProps) {
         )}
       </div>
       {!allSocialLinksAreEmpty && (
-        <div className='mx-auto flex flex-wrap items-center justify-center gap-2 px-2 pb-2'>
+        <div className='mx-auto flex flex-wrap items-center justify-center gap-2.5 px-2 pb-2'>
           {Object.entries(account).map(
             ([key, value]: [string, string | undefined]) => {
               const excludedKeys = [
@@ -79,7 +80,7 @@ export default function DisplayData({ account }: DisplayDataProps) {
               ];
               if (key !== "ls" && value && !excludedKeys.includes(key)) {
                 const propIcon = iconMap[key];
-                if (key === "em") {
+                if (key === "email") {
                   return (
                     <span
                       className='group bg-foreground/90 cursor-pointer rounded-full border-white p-1.5 shadow-md hover:bg-black'
@@ -114,7 +115,7 @@ export default function DisplayData({ account }: DisplayDataProps) {
           )}
         </div>
       )}
-      <ul className='20 mt-1 space-y-3 2xl:space-y-4'>
+      <ul className='mb-10 space-y-2'>
         {account.ls &&
           account.ls.map((link, id) => (
             <ExtraLinksCard

@@ -25,9 +25,9 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import IconInfo from "./icon-info";
+} from "../ui/card";
+import { Button } from "../ui/button";
+import IconSelectCard from "./icon-select-card";
 import SortableLinks from "./sortable-links";
 
 import type { DragEndEvent } from "@dnd-kit/core";
@@ -94,7 +94,7 @@ export default function ExtraLinksForm() {
         <CardHeader>
           <CardTitle className='flex items-center justify-between text-3xl'>
             Extra Links
-            <IconInfo />
+            <IconSelectCard />
           </CardTitle>
           <CardDescription>Enter additional link here.</CardDescription>
         </CardHeader>

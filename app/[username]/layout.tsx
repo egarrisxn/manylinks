@@ -1,5 +1,4 @@
-import Link from "next/link";
-import Image from "next/image";
+import BrandLogo from "@/components/brand-logo";
 
 export default function UsersProfileLayout({
   children,
@@ -8,15 +7,12 @@ export default function UsersProfileLayout({
 }) {
   return (
     <>
-      <main className='flex-1'>{children}</main>
-      <Link
-        href='/'
-        className='gap-0.3 fixed inset-x-0 bottom-0 mx-auto flex w-full flex-row items-center justify-center py-2 text-xs font-black tracking-tighter backdrop-blur-sm'
-      >
-        <span>MANY</span>
-        <Image src='/icon.svg' alt='logo' height={16} width={16} />
-        <span>LINKS</span>
-      </Link>
+      <main className='mb-[10vh] flex-1'>{children}</main>
+      <BrandLogo
+        className='fixed inset-x-0 bottom-0 mx-auto w-full justify-center py-2 text-xs backdrop-blur-sm'
+        height={16}
+        width={16}
+      />
     </>
   );
 }

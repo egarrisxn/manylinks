@@ -2,10 +2,10 @@
 
 import { SessionProvider as NextAuthSession } from "next-auth/react";
 
-interface SessionProviderProps {
+export const SessionProvider = ({
+  children,
+}: {
   children: React.ReactNode;
-}
-
-export const SessionProvider = ({ children }: SessionProviderProps) => {
+}) => {
   return <NextAuthSession>{children}</NextAuthSession>;
 };

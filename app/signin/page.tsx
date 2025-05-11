@@ -1,100 +1,62 @@
-import Image from "next/image";
-import { signIn, providerMap } from "@/lib/auth";
+import { redirect } from "next/navigation";
+import { signIn, providerMap, auth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
+import BrandLogo from "@/components/brand-logo";
+import BackButton from "@/components/back-button";
 import GitHubIcon from "@/components/github-icon";
 import GoogleIcon from "@/components/google-icon";
 
-interface SignInPageProps {
+export default async function SignInPage({
+  searchParams,
+}: {
   searchParams: Promise<{ callbackUrl?: string }>;
-}
-
-export default async function SignInPage({ searchParams }: SignInPageProps) {
-  const awaitedSearchParams = await searchParams;
-  const callbackUrl = awaitedSearchParams?.callbackUrl ?? "";
+}) {
+  const params = await searchParams;
+  const callbackUrl = params?.callbackUrl ?? "";
   const redirectToUrl = callbackUrl || "/create";
 
-  return (
-    <div className='mx-auto flex min-h-screen w-full flex-col items-center gap-60 px-4 pt-48 sm:px-0'>
-      <section className='rounded-full border-2 border-white shadow-lg'>
-        <Image src='/icon.svg' alt='logo' height={120} width={120} />
-      </section>
+  const session = await auth();
 
-      <section className='space-y-4'>
-        {Object.values(providerMap).map((provider) => (
-          <form
-            key={provider.id}
-            action={async () => {
-              "use server";
-              try {
-                await signIn(provider.id, {
-                  redirectTo: redirectToUrl,
-                });
-              } catch (error) {
-                throw error;
-              }
-            }}
-          >
-            <Button
-              type='submit'
-              size='lg'
-              className='h-11 border border-white shadow-lg'
+  if (session) {
+    redirect("/create");
+  }
+
+  return (
+    <>
+      <header className='mx-auto flex h-[8vh] max-w-6xl items-center justify-start p-4'>
+        <BackButton />
+      </header>
+      <div className='mx-auto flex h-[92vh] w-full flex-col items-center gap-60 px-4 pt-32 sm:px-0'>
+        <BrandLogo className='text-4xl' height={48} width={48} />
+
+        <section className='space-y-4'>
+          {Object.values(providerMap).map((provider) => (
+            <form
+              key={provider.id}
+              action={async () => {
+                "use server";
+                try {
+                  await signIn(provider.id, {
+                    redirectTo: redirectToUrl,
+                  });
+                } catch (error) {
+                  throw error;
+                }
+              }}
             >
-              {provider.id === "github" && <GitHubIcon />}
-              {provider.id === "google" && <GoogleIcon />}
-              <span>Sign in with {provider.name}</span>
-            </Button>
-          </form>
-        ))}
-      </section>
-    </div>
+              <Button
+                type='submit'
+                size='lg'
+                className='h-12 border border-white shadow-lg'
+              >
+                {provider.id === "github" && <GitHubIcon />}
+                {provider.id === "google" && <GoogleIcon />}
+                <span>Sign in with {provider.name}</span>
+              </Button>
+            </form>
+          ))}
+        </section>
+      </div>
+    </>
   );
 }
-// import Image from "next/image";
-// import { signIn, providerMap } from "@/lib/auth";
-// import { Button } from "@/components/ui/button";
-// import GitHubIcon from "@/components/github-icon";
-// import GoogleIcon from "@/components/google-icon";
-
-// export default async function SignInPage(props: {
-//   searchParams: { callbackUrl?: string };
-// }) {
-//   const awaitedSearchParams = await Promise.resolve(props.searchParams);
-//   const callbackUrl = awaitedSearchParams?.callbackUrl ?? "";
-//   const redirectToUrl = callbackUrl || "/create";
-
-//   return (
-//     <div className='mx-auto flex min-h-screen w-full flex-col items-center gap-60 px-4 pt-48 sm:px-0'>
-//       <section className='rounded-full shadow-lg border-2 border-white'>
-//         <Image src='/icon.svg' alt='logo' height={120} width={120} />
-//       </section>
-
-//       <section className='space-y-4'>
-//         {Object.values(providerMap).map((provider) => (
-//           <form
-//             key={provider.id}
-//             action={async () => {
-//               "use server";
-//               try {
-//                 await signIn(provider.id, {
-//                   redirectTo: redirectToUrl,
-//                 });
-//               } catch (error) {
-//                 throw error;
-//               }
-//             }}
-//           >
-//             <Button
-//               type='submit'
-//               size='lg'
-//               className='h-11 border border-white shadow-lg'
-//             >
-//               {provider.id === "github" && <GitHubIcon />}
-//               {provider.id === "google" && <GoogleIcon />}
-//               <span>Sign in with {provider.name}</span>
-//             </Button>
-//           </form>
-//         ))}
-//       </section>
-//     </div>
-//   );
-// }
