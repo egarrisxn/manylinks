@@ -1,147 +1,118 @@
-// original source: https://github.com/ibelick/background-snippets/blob/main/app/components/background.tsx
+const BackgroundSoftGlow = () => (
+  <div className='bg-background absolute inset-0 z-[-10] size-full'>
+    <div className='absolute inset-0 bg-[radial-gradient(circle_600px_at_50%_20%,#e0f7fa_0%,transparent_100%)]'></div>
+  </div>
+);
 
-const BgTheme1 = () => {
-  return <div className='bg-background absolute inset-0 z-[-10] size-full' />;
-};
+const BackgroundCottonCandy = () => (
+  <div className='bg-background absolute inset-0 z-[-10] size-full bg-[radial-gradient(circle_800px_at_80%_200px,#fde2f3,transparent)]'></div>
+);
 
-const BgTheme2 = () => {
-  return (
-    <div className='bg-background absolute inset-0 z-[-10] size-full bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]'>
-      <div className='absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)]'></div>
-    </div>
-  );
-};
+const BackgroundPeachMist = () => (
+  <div className='bg-background absolute top-0 z-[-10] size-full'>
+    <div className='absolute top-0 right-0 size-[400px] translate-x-[-20%] translate-y-[20%] rounded-full bg-[#ffebcd] opacity-40 blur-[100px]'></div>
+  </div>
+);
 
-const BgTheme3 = () => {
-  return (
-    <div className='bg-background absolute inset-0 z-[-10] size-full bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]'>
-      <div className='absolute inset-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]'></div>
-    </div>
-  );
-};
+const BackgroundLavenderCloud = () => (
+  <div className='bg-background absolute inset-0 z-[-10] size-full [background:radial-gradient(125%_125%_at_50%_10%,#e6e6fa_20%,#ffffff_100%)]'></div>
+);
 
-const BgTheme4 = () => {
-  return (
-    <div className='bg-background absolute top-0 z-[-10] size-full bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]'></div>
-  );
-};
+const BackgroundAuraBeam = () => (
+  <div className='bg-background absolute inset-0 z-[-10] size-full bg-[radial-gradient(100%_50%_at_50%_0%,#bbf7d0_0%,#ffffff00_70%)]'></div>
+);
 
-const BgTheme5 = () => {
-  return (
-    <div className='bg-background absolute top-0 z-[-10] size-full'>
-      <div className='absolute top-0 right-0 bottom-auto left-auto size-[500px] translate-x-[-30%] translate-y-[20%] rounded-full bg-[rgba(173,109,244,0.5)] opacity-50 blur-[80px]'></div>
-    </div>
-  );
-};
+const BackgroundPolkaFade = () => (
+  <div className='bg-background absolute inset-0 z-[-10] size-full bg-[radial-gradient(#f2f2f2_1px,transparent_1px)] [background-size:16px_16px]'></div>
+);
 
-const BgTheme6 = () => {
-  return (
-    <div className='bg-background absolute inset-0 z-[-10] size-full [background:radial-gradient(125%_125%_at_50%_10%,#63e_20%,#f0f0f0_100%)]'></div>
-  );
-};
+const BackgroundBigDots = () => (
+  <div className='bg-background absolute inset-0 z-[-10] size-full bg-[radial-gradient(#ececec_2px,transparent_2px)] [background-size:2rem_2rem]'></div>
+);
 
-const BgTheme7 = () => {
-  return (
-    <div className='bg-background absolute inset-0 z-[-10] size-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]'>
-      <div className='absolute inset-x-0 top-0 m-auto size-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]'></div>
-    </div>
-  );
-};
+const BackgroundMutedLines = () => (
+  <div className='bg-background absolute inset-0 z-[-10] size-full bg-[linear-gradient(to_right,#eaeaea_1px,transparent_1px)] bg-[size:4rem_100%]'></div>
+);
 
-const BgTheme8 = () => {
-  return (
-    <div className='bg-background absolute z-[-10] size-full'>
-      <div className='absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)] bg-[size:14px_24px]'></div>
-    </div>
-  );
-};
+const BackgroundMeshGrid = () => (
+  <div className='bg-background absolute inset-0 z-[-10] size-full bg-[linear-gradient(to_right,#f0f0f033_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f033_1px,transparent_1px)] bg-[size:24px_24px]'></div>
+);
 
-const BgTheme9 = () => {
-  return (
-    <div className='bg-background absolute inset-0 z-[-10] size-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]'></div>
-  );
-};
+const BackgroundMaskedGrid = () => (
+  <div className='bg-background absolute z-[-10] size-full'>
+    <div className='absolute size-full bg-[linear-gradient(to_right,#eaeaea_1px,transparent_1px),linear-gradient(to_bottom,#eaeaea_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] bg-[size:48px_48px]'></div>
+  </div>
+);
 
-const BgTheme10 = () => {
-  return (
-    <div className='bg-background absolute z-[-10] size-full'>
-      <div className='absolute size-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] [background-size:16px_16px]'></div>
-    </div>
-  );
-};
-const BgTheme11 = () => {
-  return (
-    <div className='bg-background absolute inset-0 z-[-10] size-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]'></div>
-  );
-};
+const BackgroundWarmGrid = () => (
+  <div className='bg-background absolute inset-0 z-[-10] size-full bg-[linear-gradient(to_right,#dddddd33_1px,transparent_1px),linear-gradient(to_bottom,#dddddd33_1px,transparent_1px)] bg-[size:14px_24px]'>
+    <div className='absolute inset-x-0 top-0 m-auto size-[300px] rounded-full bg-[#ffe4e1] opacity-20 blur-[100px]'></div>
+  </div>
+);
 
-const BgTheme12 = () => {
-  return (
-    <div className='bg-background absolute inset-0 z-[-10] size-full bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]'></div>
-  );
-};
+const BackgroundBigGrid = () => (
+  <div className='bg-background absolute inset-0 z-[-10] size-full bg-[linear-gradient(to_right,#ececec_1px,transparent_1px),linear-gradient(to_bottom,#ececec_1px,transparent_1px)] bg-[size:6rem_4rem]'></div>
+);
 
 export const BACKGROUND_OPTIONS = [
   {
-    code: "#FFFFFF",
-    component: <BgTheme1 />,
-    name: "WhiteCanvas",
+    code: "#e0f2fe",
+    component: <BackgroundSoftGlow />,
+    name: "Soft Glow",
   },
   {
-    code: "#C9EBFF",
-    component: <BgTheme2 />,
-    name: "LinearSky",
+    code: "#fde2f3",
+    component: <BackgroundCottonCandy />,
+    name: "Cotton Candy",
   },
   {
-    code: "#D5C5FF",
-    component: <BgTheme3 />,
-    name: "VividCircles",
+    code: "#ffebcd",
+    component: <BackgroundPeachMist />,
+    name: "Peach Mist",
   },
   {
-    code: "#00A3FF",
-    component: <BgTheme4 />,
-    name: "RadiantBlue",
+    code: "#e6e6fa",
+    component: <BackgroundLavenderCloud />,
+    name: "Lavender Cloud",
   },
   {
-    code: "#AD6DF4",
-    component: <BgTheme5 />,
-    name: "GradientOrb",
+    code: "#bbf7d0",
+    component: <BackgroundAuraBeam />,
+    name: "Aura Beam",
   },
   {
-    code: "#63E",
-    component: <BgTheme6 />,
-    name: "RadialHalo",
+    code: "#f2f2f2",
+    component: <BackgroundPolkaFade />,
+    name: "Polka Fade",
   },
   {
-    code: "#FF00FF",
-    component: <BgTheme7 />,
-    name: "BlurredFuchsia",
+    code: "#dddddd",
+    component: <BackgroundBigDots />,
+    name: "Big Dots",
   },
   {
-    code: "#4F4F4F",
-    component: <BgTheme8 />,
-    name: "ShadowyGray",
-  },
-
-  {
-    code: "#E6E7EB",
-    component: <BgTheme9 />,
-    name: "SubtleGrayDots",
-  },
-
-  {
-    code: "#E5E7EB",
-    component: <BgTheme10 />,
-    name: "MaskedGray",
+    code: "#eaeaea",
+    component: <BackgroundMutedLines />,
+    name: "Muted Lines",
   },
   {
-    code: "#808080",
-    component: <BgTheme11 />,
-    name: "GradientGrid",
+    code: "#eeeeee",
+    component: <BackgroundMeshGrid />,
+    name: "Mesh Grid",
   },
   {
-    code: "#F0F0F0",
-    component: <BgTheme12 />,
-    name: "LightGrayLines",
+    code: "#eaebea",
+    component: <BackgroundMaskedGrid />,
+    name: "Masked Grid",
+  },
+  {
+    code: "#ffe4e1",
+    component: <BackgroundWarmGrid />,
+    name: "Warm Grid",
+  },
+  {
+    code: "#f0f0f0",
+    component: <BackgroundBigGrid />,
+    name: "Big Grid",
   },
 ] as const;
