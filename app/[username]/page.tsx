@@ -4,20 +4,19 @@ import client from "@/lib/db";
 import DataDisplay from "@/components/data-display";
 import { BACKGROUND_OPTIONS } from "@/components/background-options";
 
+import type { Metadata } from "next";
 import type { DataDisplayProps } from "@/types";
 
-const getProfileData = async (
+async function getProfileData(
   username: string
-): Promise<DataDisplayProps["account"] | null> => {
+): Promise<DataDisplayProps["account"] | null> {
   try {
     const pagesCollection = client.db().collection("pages");
-    const pageData = await pagesCollection.findOne({ username: username });
+    const pageData = await pagesCollection.findOne({ username });
 
-    if (!pageData) {
-      return null;
-    }
+    if (!pageData) return null;
 
-    const formattedData: DataDisplayProps["account"] = {
+    return {
       image: pageData.profileUrl || "",
       name: pageData.name || "",
       username: pageData.username || "",
@@ -37,23 +36,47 @@ const getProfileData = async (
       mastodon: pageData.mastodon || "",
       facebook: pageData.facebook || "",
       tiktok: pageData.tiktok || "",
-      ls:
-        pageData.extraLinks.map(
-          (link: { id: any; icon: any; label: any; url: any }) => ({
+      ls: Array.isArray(pageData.extraLinks)
+        ? pageData.extraLinks.map((link: any) => ({
             id: link.id,
             icon: link.icon,
             label: link.label,
             url: link.url,
-          })
-        ) || [],
+          }))
+        : [],
     };
-
-    return formattedData;
   } catch (error) {
     catchError(error);
     return null;
   }
-};
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ username: string }>;
+}): Promise<Metadata> {
+  const { username } = await params;
+  const data = await getProfileData(username);
+
+  if (!data) return {};
+
+  return {
+    title: `${data.name} | ManyLinks`,
+    description: data.description,
+    openGraph: {
+      title: `${data.name} | ManyLinks`,
+      description: data.description,
+      images: [`/og/${username}`],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${data.name} | ManyLinks`,
+      description: data.description,
+      images: [`/og/${username}`],
+    },
+  };
+}
 
 export default async function UsernamePage({
   params,

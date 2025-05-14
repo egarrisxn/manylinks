@@ -25,7 +25,7 @@ export function ImageCarouselItem({ images }: { images: string[] }) {
   return (
     <div
       className='relative mx-auto'
-      style={{ height: "515px", width: "270px" }}
+      style={{ height: "450px", width: "250px" }}
     >
       {images.map((image, index) => (
         <img
@@ -35,7 +35,7 @@ export function ImageCarouselItem({ images }: { images: string[] }) {
           className={`absolute rounded-[2.2rem] transition-opacity duration-1000 ${
             currentIndex === index ? "opacity-100" : "opacity-0"
           } ${isAnimating ? "z-10" : "z-0"}`}
-          style={{ height: "515px", width: "270px", objectFit: "cover" }}
+          style={{ height: "450px", width: "250px", objectFit: "cover" }}
         />
       ))}
     </div>

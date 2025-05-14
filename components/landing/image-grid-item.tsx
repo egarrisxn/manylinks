@@ -6,9 +6,10 @@ export function ImageGridItem({ images }: { images: string[] }) {
           <img
             src={image}
             alt={`image-${index}`}
-            className={`size-full rounded-[2.2rem] transition-transform duration-300 hover:scale-105 hover:rotate-0 ${
+            className={`rounded-[2.2rem] sm:transition-transform sm:duration-300 sm:hover:scale-105 sm:hover:rotate-0 ${
               index % 2 === 0 ? "-rotate-5" : "rotate-5"
             }`}
+            style={{ height: "450px", width: "250px", objectFit: "cover" }}
           />
         </div>
       ))}

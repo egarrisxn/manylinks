@@ -7,9 +7,8 @@ export default async function LandingNavbar() {
   const session = await auth();
 
   return (
-    <header className='mx-auto flex max-w-6xl items-center justify-between p-4 shadow-lg xl:shadow-none'>
+    <header className='mx-auto flex w-full max-w-6xl flex-row items-center justify-between p-4'>
       <BrandLogo />
-
       {session ? <SignOutButton /> : <SignInButton />}
     </header>
   );
