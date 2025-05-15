@@ -1,4 +1,4 @@
-import { ImageResponse } from "@vercel/og";
+import { ImageResponse } from "next/og";
 import client from "@/lib/db";
 
 export const runtime = "nodejs";
@@ -20,48 +20,111 @@ export async function GET(
     (
       <div
         style={{
+          width: "100%",
+          height: "100%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          width: "100%",
-          height: "100%",
-          backgroundColor: "#f9f9f9",
           textAlign: "center",
-          paddingTop: "125px",
-          paddingBottom: "275px",
-          paddingLeft: "300px",
-          paddingRight: "300px",
-          fontFamily: "system-ui, sans-serif",
-          overflow: "hidden",
+          backgroundImage: "linear-gradient(to top, #dfe9f3 0%, white 100%)",
         }}
       >
-        {pageData.profileUrl && (
-          <img
-            src={pageData.profileUrl}
-            alt='Profile'
-            style={{
-              borderRadius: "50%",
-              width: 120,
-              height: 120,
-              objectFit: "cover",
-              border: "4px solid black",
-            }}
-          />
-        )}
-        <h1 style={{ fontSize: 36, marginTop: 20, fontWeight: 900 }}>
-          {pageData.name}
-        </h1>
-        <p
+        <div
           style={{
-            fontSize: 24,
-            marginTop: 32,
-            fontWeight: 600,
-            color: "#333",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            padding: "0px 50px 50px 50px",
+            width: "auto",
+            maxWidth: 550,
+            textAlign: "center",
           }}
         >
-          {pageData.description || "Visit my ManyLinks page!"}
-        </p>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              paddingBottom: "20px",
+            }}
+          >
+            {pageData.profileUrl && (
+              <img
+                src={pageData.profileUrl}
+                alt='Profile'
+                style={{
+                  borderRadius: "50%",
+                  width: 100,
+                  height: 100,
+                  objectFit: "cover",
+                  border: "2px solid black",
+                }}
+              />
+            )}
+          </div>
+          <div
+            style={{
+              fontWeight: 1000,
+              fontSize: 68,
+              letterSpacing: -5,
+              lineHeight: 1.1,
+              paddingBottom: "20px",
+            }}
+          >
+            {pageData.name}
+          </div>
+          <div
+            style={{
+              fontWeight: 700,
+              fontSize: 20,
+              letterSpacing: -1,
+              lineHeight: 1.4,
+            }}
+          >
+            {pageData.description || "Visit my ManyLinks page!"}
+          </div>
+        </div>
+        <div
+          style={{
+            right: 40,
+            top: 40,
+            position: "absolute",
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              fontWeight: 1000,
+              fontSize: 24,
+              letterSpacing: -2,
+              lineHeight: 1,
+            }}
+          >
+            Many
+          </div>
+          <img
+            src='https://manylinks.vercel.app/icon.png'
+            alt='ManyLinks Icon'
+            style={{
+              borderRadius: "50%",
+              width: 24,
+              height: 24,
+              objectFit: "cover",
+            }}
+          />
+          <div
+            style={{
+              fontWeight: 1000,
+              fontSize: 24,
+              letterSpacing: -2,
+              lineHeight: 1,
+            }}
+          >
+            Links
+          </div>
+        </div>
       </div>
     ),
     {
