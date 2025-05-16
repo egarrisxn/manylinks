@@ -2,6 +2,8 @@
   "name": "manylinks",
   "version": "1.0.0",
   "description": "One Page. Many Links!",
+  "homepage": "https://manylinks.vercel.app",
+  "author": "Ethan G. (https://egxo.dev)",
   "license": "MIT",
   "private": true,
   "keywords": [
@@ -9,6 +11,7 @@
     "javascript",
     "next.js",
     "react",
+    "mongodb",
     "tailwindcss",
     "shadcn/ui",
     "vercel"
@@ -66,7 +69,7 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.1.4",
     "tw-animate-css": "^1.2.8",
-    "typescript": "5.8.3"
+    "typescript": "^5.8.3"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
