@@ -23,8 +23,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "format": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "format:fix": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache"
+    "format": "prettier --check \"**/*.{js,jsx,ts,tsx,mdx}\" --cache",
+    "format:fix": "prettier --write \"**/*.{js,jsx,ts,tsx,mdx}\" --cache"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.9.0",

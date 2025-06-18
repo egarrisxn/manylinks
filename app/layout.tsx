@@ -75,7 +75,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
+    <html lang='en' suppressHydrationWarning>
+     <meta name='apple-mobile-web-app-title' content={SITE_DATA.title} />
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
