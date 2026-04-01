@@ -10,8 +10,8 @@ export default function LandingFooter() {
         width={16}
       />
 
-      <p className='text-muted-foreground mx-auto flex items-center justify-center text-center text-sm tracking-tighter'>
-        © 2025 ManyLinks. All Rights Reserved.
+      <p className='mx-auto flex items-center justify-center text-center text-sm tracking-tighter text-muted-foreground'>
+        © 2026 ManyLinks. All Rights Reserved.
       </p>
 
       <a
